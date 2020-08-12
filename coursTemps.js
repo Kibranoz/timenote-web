@@ -5,6 +5,8 @@ class coursChrono {
     constructor(){
         this.initializeTimer = new Date().getTime()
         this.actualTime = new Date().getTime()
+        this.notes = {};
+        this.idNumber  = 0;
     }
     printInitializeTimer(){
         console.log(this.initializeTimer);
@@ -26,7 +28,13 @@ class coursChrono {
 
 
     addNewNoteField(){
-        $(".noteZone").append("<div class='container'>" + this.lastTime + "<textarea class = 'form-control' type = 'text'></textarea></div>")
+        $(".noteZone").append("<div class='container notearea' id = 'note-"+this.idNumber+"'><div class ='timeOfNote'>" + this.lastTime + "</div><textarea class = 'form-control' type = 'text'></textarea></div>")
+        this.idNumber +=1
+    }
+    saveNotes(){
+        this.notes["note-"+this.idNumber] = 
+        {"time": $("#note-"+this.idNumber+" .timeOdNote").text(), "note" : $("#note-"+this.idNumber+" textarea").text() }
+        
     }
 
     }
