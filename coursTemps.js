@@ -1,3 +1,13 @@
+function SaveAsFile(t,f,m) {
+    try {
+        var b = new Blob([t],{type:m});
+        saveAs(b, f);
+    } catch (e) {
+        window.open("data:"+m+"," + encodeURIComponent(t), '_blank','');
+    }
+}
+
+
 var chron = null
 var playTime = null
 var pauseTime = null
@@ -9,6 +19,7 @@ class coursChrono {
         this.notes = {};
         this.idNumber  = 0;
         this.haveBeenPaused = false;
+        this.savedText = ""
     }
     printInitializeTimer(){
         console.log(this.initializeTimer);
@@ -38,7 +49,20 @@ class coursChrono {
     }
 }
 
+    writeText(){
+       const notesKey = Object.keys(this.notes);
+        //console.log(JSON.stringify(notesKey));
+        for (const it in notesKey){
+            //console.log(note);
+            this.savedText += ("-" + this.notes[notesKey[it]]['time'] + " : " + this.notes[notesKey[it]]["note"] + "\n");
+        }
+        return this.savedText;
+    }
 
+
+    clearBuffer(){
+        this.savedText = ""
+    }
 
     addNewNoteField(){
         $(".noteZone").append("<div class='container notearea' id = 'note-"+this.idNumber+"'><div class ='timeOfNote'>" + this.lastTime + "</div><textarea class = 'form-control' type = 'text'></textarea></div>")
@@ -78,6 +102,11 @@ $('i.pause').click(()=>{
 })
 $(".note").click(()=>{
     chron.addNewNoteField()
+})
+$("i.save").click(()=>{
+    var noteDate = new Date()
+    SaveAsFile(chron.writeText(),(noteDate.toString())+".txt","text/plain;charset=utf-8");
+    chron.clearBuffer()
 })
 })
 
