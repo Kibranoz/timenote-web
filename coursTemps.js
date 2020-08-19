@@ -73,6 +73,14 @@ class coursChrono {
         {"time": $("#"+id+" .timeOfNote").text(), "note" : $("#"+id+" textarea").val().toString() }
         
     }
+    setTime(typeTime){
+        this.timerSetCurrentSelectionValue = Number($("."+typeTime).html())
+        $("."+typeTime).html((this.timerSetCurrentSelectionValue +1).toString())
+    }
+
+    adjustTime(){
+        this.initializeTimer = new Date().getTime() - (Number($('.hours').html())*3600 - Number($('.minutes').html())*60 - Number($('.seconds').html()))*1000
+    }
 
 
     }
