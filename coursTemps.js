@@ -73,10 +73,28 @@ class coursChrono {
         {"time": $("#"+id+" .timeOfNote").text(), "note" : $("#"+id+" textarea").val().toString() }
         
     }
-    setTime(typeTime){
+    setTimeUp(typeTime){
+        console.log(typeTime)
         this.timerSetCurrentSelectionValue = Number($("."+typeTime).html())
+        if (this.timerSetCurrentSelectionValue >= 59){
+            this.timerSetCurrentSelectionValue = 0 
+            $("."+typeTime).html((this.timerSetCurrentSelectionValue).toString())
+        }
+        else {
         $("."+typeTime).html((this.timerSetCurrentSelectionValue +1).toString())
+        } 
     }
+    setTimeLow(typeTime){
+        this.timerSetCurrentSelectionValue = Number($("."+typeTime).html())
+        if (this.timerSetCurrentSelectionValue <= 0){
+            this.timerSetCurrentSelectionValue =59 
+            $("."+typeTime).html((this.timerSetCurrentSelectionValue).toString())
+        }
+        else {
+        $("."+typeTime).html((this.timerSetCurrentSelectionValue -1).toString())
+        } 
+    }
+    
 
     adjustTime(){
         this.initializeTimer = new Date().getTime() - (Number($('.hours').html())*3600 - Number($('.minutes').html())*60 - Number($('.seconds').html()))*1000
@@ -115,6 +133,27 @@ $("i.save").click(()=>{
     var noteDate = new Date()
     SaveAsFile(chron.writeText(),(noteDate.toString())+".txt","text/plain;charset=utf-8");
     chron.clearBuffer()
+})
+$("i.updateTime").click(()=>{
+    if (!chron){
+        chron = new coursChrono();
+  }
+})
+$(".timeComponante").click((ev)=>{
+    $(".selected").each((i,elem)=>{
+        $(elem).toggleClass("selected")
+        //on veut s'assurer qu'il en ait juste un 
+    })
+    console.log("teet")
+    $(ev.target).toggleClass("selected")
+})
+$("i.raise").click(()=>{
+    console.log($(".selected").attr("timeDiv").toString())
+    chron.setTimeUp($(".selected").attr("timeDiv").toString())
+})
+$("i.lower").click(()=>{
+    console.log($(".selected").attr("timeDiv").toString())
+    chron.setTimeLow($(".selected").attr("timeDiv").toString())
 })
 })
 
