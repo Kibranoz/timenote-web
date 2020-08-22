@@ -7,8 +7,17 @@
     font-family: 'Press Start 2P',cursive;
     color:rgb(228, 243, 13);
     background-color: rgb(11, 53, 18);
+
+}
+.hour,.minute,.second{
+    display:inline;
+    border-bottom-style: dashed;
+    border-bottom-color:rgb(131, 131, 139);
 }
 
+.selected{
+    border-bottom-color:rgb(228, 243, 13);; 
+}
 .header {
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
