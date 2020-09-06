@@ -50,8 +50,10 @@ i:hover{
     .grosIcone{
         font-size:25px;
     }
-    .row.jumbotron-fluid{
-        display:flex!important;
-        flex-direction: row!important;
+
+    .col-sm{
+        width:unset;
+        padding-left:25px;
+        padding-right:25px;
     }
 }
