@@ -46,3 +46,8 @@ i:hover{
 .jumbotron.header{
     margin-bottom:unset;
 }
+@media (max-width:768px){
+    .grosIcone{
+        font-size:25px;
+    }
+}

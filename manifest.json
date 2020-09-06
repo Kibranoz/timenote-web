@@ -4,7 +4,7 @@
     "name": "Timenote",
     "short_name": "",
     "scope": "/",
-    "display": "browser",
+    "display": "standalone",
     "start_url": "https://kibranoz.github.io/timenote/time.html",
     "background_color": "transparent",
     "theme_color": "transparent",
@@ -13,7 +13,7 @@
     "related_applications": [],
     "prefer_related_applications": false,
     "icons": [{
-        "src": "/logo.png",
+        "src": "logo.png",
         "sizes": "512x512",
         "type": "image/png"
       }],
