@@ -6,7 +6,6 @@ function SaveAsFile(t, f, m) {
     window.open("data:" + m + "," + encodeURIComponent(t), "_blank", "");
   }
 }
-
 var chron = null;
 var playTime = null;
 var pauseTime = null;
@@ -193,11 +192,28 @@ $(document).ready(function () {
     $("i.play").trigger("click");
     $("#timeAdjust").toggleClass("hidden")
   });
-});
+})
+ 
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 
+$(window).on("scroll",(event)=>{
+  var previousScroll=0
+  var currentScroll = $(this).scrollTop();
+  if (window.pageYOffset > $(".stickyStuff").offset().top) {
+    $(".stickyStuff").addClass("sticky");
+    $(".noteZone").offset({top:$(".stickyStuff").offset().top+100,left:$(".notezone").offset().left})
+  } 
+  if (currentScroll>=previousScroll){
+    $(".stickyStuff").removeClass("sticky");
+    //$(".notezone").offset(initialPosiiton);
+  }
+  previousScroll = currentScroll;
+});
 $(document).on("change", ".noteZone textarea", () => {
   $(".noteZone textarea").each((i) => {
     chron.saveNotes("note-" + i);
   });
   console.log(chron.notes);
 });
+// When the user scrolls the page, execute myFunction 
+

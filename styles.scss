@@ -46,7 +46,15 @@ i:hover{
 .jumbotron.header{
     margin-bottom:unset;
 }
-@media (max-width:768px){
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 100%;
+    
+}
+
+@media (max-width:580px){
     .grosIcone{
         font-size:25px;
     }
@@ -56,4 +64,5 @@ i:hover{
         padding-left:25px!important;
         padding-right:25px!important;
     }
+
 }
