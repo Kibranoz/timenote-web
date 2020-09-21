@@ -7,6 +7,8 @@ function SaveAsFile(t, f, m) {
   }
 }
 
+
+
 var chron = null;
 var playTime = null;
 var pauseTime = null;
@@ -130,6 +132,17 @@ class coursChrono {
   }
 }
 $(document).ready(function () {
+  var lang = navigator.language.split("-")[0]
+    if (lang == "fr"){
+       $("#appTitle").text("Notes Temporelles");
+       $("#appDesc").text("Prenez des notes associés a un moment particulier de votre cours à distance ")
+
+    }
+    else{
+      $("#appTitle").text("Timenote");
+      $("#appDesc").text("Take notes associated to a particular timestamp in your online classes");
+  
+    }
   $("i.play").click(() => {
     clearInterval(pauseTime);
     pauseTime = null;
