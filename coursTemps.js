@@ -134,8 +134,8 @@ class coursChrono {
 $(document).ready(function () {
   var lang = navigator.language.split("-")[0]
     if (lang == "fr"){
-       $("#appTitle").text("Notes Temporelles");
-       $("#appDesc").text("Prenez des notes associés a un moment particulier de votre cours à distance ")
+       $("#appTitle").html("Notes Temporelles");
+       $("#appDesc").html("Prenez des notes associés a un moment particulier de votre cours à distance ")
 
     }
     else{
