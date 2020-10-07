@@ -12,10 +12,16 @@
       rel="stylesheet">
 <link rel = "stylesheet" href = "styles.scss"/>
 <script type="module">
-    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 
-const el = document.createElement('pwa-update');
-document.body.appendChild(el);
+document.querySelector('#show').addEventListener('click', () => {
+  const iconUrl = document.querySelector('select').selectedOptions[0].value;
+  let imgElement = document.createElement('img');
+  imgElement.src = iconUrl;
+  document.querySelector('#container').appendChild(imgElement);
+});
 </script>
 <script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
 <script src = "coursTemps.js"></script>
