@@ -7,27 +7,7 @@ function SaveAsFile(t, f, m) {
   }
 }
 
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault()
-  deferredPrompt = e
-})
 
-const btnInstallApp = document.getElementById('btn-install-app')
-
-if(btnInstallApp) {
-  btnInstallApp.addEventListener('click', e => {
-    deferredPrompt.prompt()
-    deferredPrompt.userChoice
-      .then(choiceResult => {
-        if(choiceResult.outcome === 'accepted') {
-          console.log('user accepted A2HS prompt')
-        } else {
-          console.log('user dismissed A2HS prompt')
-        }
-        deferredPrompt = null
-      })
-    })
-}
 
 
 var chron = null;
@@ -163,6 +143,27 @@ $(document).ready(function () {
       $("#appTitle").text("Timenote");
       $("#appDesc").text("Take notes associated to a particular timestamp in your online classes");
   
+    }
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault()
+      deferredPrompt = e
+    })
+    
+    const btnInstallApp = document.getElementById('btn-install-app')
+    
+    if(btnInstallApp) {
+      btnInstallApp.addEventListener('click', e => {
+        deferredPrompt.prompt()
+        deferredPrompt.userChoice
+          .then(choiceResult => {
+            if(choiceResult.outcome === 'accepted') {
+              console.log('user accepted A2HS prompt')
+            } else {
+              console.log('user dismissed A2HS prompt')
+            }
+            deferredPrompt = null
+          })
+        })
     }
   $("i.play").click(() => {
     clearInterval(pauseTime);
