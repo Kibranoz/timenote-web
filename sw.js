@@ -23,7 +23,15 @@ const PRECACHE_URLS = [
   "time.html",
   './', // Alias for index.html
   'styles.scss',
-  'coursTemps.js'
+  'coursTemps.js',
+  "https://cdn.jsdelivr.net/g/filesaver.js",
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+  "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap",
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
+  "https://fonts.googleapis.com/icon?family=Material+Icons"
+
+
+
 ];
 
 // The install handler takes care of precaching the resources we always need.
