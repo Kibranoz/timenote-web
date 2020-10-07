@@ -3,7 +3,7 @@
     "lang": "en",
     "name": "Timenote",
     "short_name": "Timenote",
-    "scope": "/",
+    "scope": "https://kibranoz.github.io/timenote/",
     "display": "standalone",
     "start_url": "https://kibranoz.github.io/timenote/time.html",
     "background_color": "#dbcdad",
