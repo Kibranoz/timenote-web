@@ -15,13 +15,7 @@
    if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
-
-document.querySelector('#show').addEventListener('click', () => {
-  const iconUrl = document.querySelector('select').selectedOptions[0].value;
-  let imgElement = document.createElement('img');
-  imgElement.src = iconUrl;
-  document.querySelector('#container').appendChild(imgElement);
-});
+;
 </script>
 <script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
 <script src = "coursTemps.js"></script>
