@@ -13,7 +13,7 @@
     "related_applications": [],
     "prefer_related_applications": false,
     "icons": [{
-        "src": "logo512.png",
+        "src": "timenote icon.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "any maskable"
