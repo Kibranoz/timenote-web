@@ -6,7 +6,7 @@
     "scope": "https://kibranoz.github.io/timenote/",
     "display": "standalone",
     "start_url": "https://kibranoz.github.io/timenote/time.html",
-    "background_color": "#dbcdad",
+    "background_color": "#000000",
     "theme_color": "#000000",
     "description": "Une application pour prendre retrouver des parties de vos cours à distance",
     "orientation": "any",
