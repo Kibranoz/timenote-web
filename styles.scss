@@ -1,5 +1,6 @@
 :root{
     font-family: 'Share Tech Mono', monospace;
+    color-scheme:light dark;
 }
 .engros{
     font-size: 50px;
@@ -10,11 +11,31 @@
 
 }
 .siteTitle{
-    text-align: left;
+    position: absolute;
+    left:12%;
     padding-top: 5px;
     padding-bottom:5px;
 }
+@media(prefers-color-scheme: dark){
+  body{
+    color:white;
+    background-color: black!important;
+  }
+  textarea.form-control{
+      background-color: black;
+      color:white;
+      border-color:white;
+  }
+  body > div.jumbotron.jumbotron-fluid.enGros{
+      border-color:white;
+      background-color: black;
+      border-style: dashed;
+  }
+  .engros{
+    background-color: black!important;
+  }
 
+}
 #hamburger{
     justify-content: left!important;
 }
