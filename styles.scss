@@ -19,7 +19,7 @@
 
 #timeEditor{
     width:98%;
-    height:60%;
+    height:55%;
     margin-top:5px;
     margin-left: 1%;
     margin-right: 1%;
@@ -38,9 +38,17 @@
       border-color:white;
       background-color: black;
       border-style: dashed;
+
   }
   .engros{
     background-color: black!important;
+  }
+
+  #timeEditor{
+      background-color: black;
+      border-style: dashed;
+      border-width:thick;
+      border-color:white;
   }
 
 }
