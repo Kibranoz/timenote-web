@@ -7,9 +7,6 @@ function SaveAsFile(t, f, m) {
   }
 }
 
-
-
-
 var chron = null;
 var playTime = null;
 var pauseTime = null;
@@ -21,7 +18,6 @@ class coursChrono {
     this.notes = {};
     this.idNumber = 0;
     this.haveBeenPaused = false;
-    this.savedText = "";
     this.text = "";
   }
   printInitializeTimer() {
@@ -61,10 +57,8 @@ class coursChrono {
       this.pauseStartedAt = 0;
     }
   }
-
-
-  clearBuffer() {
-    this.savedText = "";
+  getTextFromTextArea(){
+    this.text = $("#timeEditor").val()
   }
 
   addTimeToBottomOfText() {
@@ -155,13 +149,13 @@ $(document).ready(function () {
     chron.addTimeToBottomOfText();
   });
   $("i.save").click(() => {
+    chron.getTextFromTextArea();
     var noteDate = new Date();
     SaveAsFile(
       chron.text,
       noteDate.toString() + ".txt",
       "text/plain;charset=utf-8"
     );
-    chron.clearBuffer();
   });
   $("i.updateTime").click(() => {
       $("#timeAdjust").toggleClass("hidden")
