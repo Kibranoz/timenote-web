@@ -15,7 +15,6 @@ class coursChrono {
     this.initializeTimer = new Date().getTime();
     this.pauseStartedAt = 0;
     this.pauseEndedAt = 0;
-    this.notes = {};
     this.idNumber = 0;
     this.haveBeenPaused = false;
     this.text = "";
@@ -102,9 +101,9 @@ class coursChrono {
   adjustTime() {
     this.initializeTimer =
       new Date().getTime() -
-      (Number($(".hour").html()) * 3600 +
-        Number($(".minute").html()) * 60 +
-        Number($(".second").html())) *
+      (Number($(".hour input").val()) * 3600 +
+        Number($(".minute input").val()) * 60 +
+        Number($(".second input").html())) *
         1000;
     console.log($(".hour").text());
   }
@@ -162,22 +161,6 @@ $(document).ready(function () {
     if (!chron) {
       chron = new coursChrono();
     }
-  });
-  $(".timeComponante").click((ev) => {
-    $(".selected").each((i, elem) => {
-      $(elem).toggleClass("selected");
-      //on veut s'assurer qu'il en ait juste un
-    });
-    console.log("teet");
-    $(ev.target).toggleClass("selected");
-  });
-  $("i.raise").click(() => {
-    console.log($(".selected").attr("timeDiv").toString());
-    chron.setTimeUp($(".selected").attr("timeDiv").toString());
-  });
-  $("i.lower").click(() => {
-    console.log($(".selected").attr("timeDiv").toString());
-    chron.setTimeLow($(".selected").attr("timeDiv").toString());
   });
   $("i.approve").click(() => {
     chron.adjustTime();

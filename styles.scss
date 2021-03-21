@@ -16,6 +16,16 @@
     padding-top: 5px;
     padding-bottom:5px;
 }
+.timeComponante input{
+    max-width: 120px;
+    font-size: 50px;
+    display: inline-block;
+    margin:auto;
+    background: transparent;
+    color:rgb(228, 243, 13);
+    border: none;
+
+}
 
 #timeEditor{
     width:98%;
@@ -71,14 +81,13 @@
     padding-bottom: 10px;
 }
 .hour,.minute,.second{
-    display:inline;
-    border-bottom-style: dashed;
-    border-bottom-color:rgb(131, 131, 139);
+    display: inline-block;
+    margin:auto;
+    border-bottom-style: dashed!important;
+    border-bottom-color:rgb(228, 243, 13)!important;
 }
 
-.selected{
-    border-bottom-color:rgb(228, 243, 13); 
-}
+
 .header {
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
