@@ -133,14 +133,14 @@ $(document).ready(function () {
         $("#temps").html(chron.calcTemps());
       }, 1000);
     }
-    $(".play").toggleClass("hidden");
-    $(".pause").toggleClass("hidden");
+    $(".play").addClass("hidden");
+    $(".pause").removeClass("hidden");
   });
   $("i.pause").click(() => {
     clearInterval(playTime);
     playTime = null;
-    $(".play").toggleClass("hidden");
-    $(".pause").toggleClass("hidden");
+    $(".play").removeClass("hidden");
+    $(".pause").addClass("hidden");
     chron.pauseBegin();
     chron.haveBeenPaused = true;
   });
@@ -158,6 +158,9 @@ $(document).ready(function () {
   });
   $("i.updateTime").click(() => {
       $("#timeAdjust").toggleClass("hidden")
+    if (chron){
+      $("i.play").trigger("click");
+    }
     if (!chron) {
       chron = new coursChrono();
     }
