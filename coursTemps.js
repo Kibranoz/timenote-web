@@ -103,7 +103,7 @@ class coursChrono {
       new Date().getTime() -
       (Number($(".hour input").val()) * 3600 +
         Number($(".minute input").val()) * 60 +
-        Number($(".second input").html())) *
+        Number($(".second input").val())) *
         1000;
     console.log($(".hour").text());
   }
