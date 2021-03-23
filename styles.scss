@@ -7,8 +7,10 @@
     text-align:center;
     font-family: 'Press Start 2P',cursive;
     color:rgb(228, 243, 13);
-    background-color: rgb(11, 53, 18);
-
+    background-color: rgb(11, 53, 18)
+}
+html{
+    overflow-x: hidden;
 }
 .siteTitle{
     position: absolute;
@@ -121,6 +123,10 @@ i:hover{
         font-size:40px;
         align-content: center;
         }
+        .timeComponante input{
+            font-size:40px;
+        }
+    
         .engros{
             font-size: 40px;
             text-align:center;
