@@ -12,6 +12,10 @@
 html{
     overflow-x: hidden;
 }
+.row{
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
 .siteTitle{
     position: absolute;
     left:12%;
@@ -128,7 +132,7 @@ i:hover{
         }
     
         .engros{
-            font-size: 40px;
+            font-size: 50px;
             text-align:center;
             font-family: 'Press Start 2P',cursive;
             color:rgb(228, 243, 13);
@@ -180,6 +184,9 @@ i:hover{
             
         }
         @media (min-width:320px) and (max-width:580px){
+            .engros{
+                font-size: 40px;
+            }
             .grosIcone{
                 font-size:38px;
                 align-content: center;
