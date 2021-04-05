@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: zealous-sinoussi-214004.netlify.app
+Token: 981de2f0c85d89a690294980c3bc045ced79743416e5db14df6ce4cd11f122a9
