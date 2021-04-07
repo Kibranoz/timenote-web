@@ -1,0 +1,2 @@
+# timenote
+Timenote is a progressive web app that helps you with your online classes. Start at the beginning of your class (or adjust the time from the actual beginning using the arrow with a clock button if you're late). Click on the add note (paper with a plus sign) whenever your teacher switches to a new slide, or talks about something important. It will then show the timestamp, and you can just add what it is about. When class is over, click on the save button to keep your notes as a file that you can use to get back on specific parts when you're studying.
