@@ -3,6 +3,8 @@
     "lang": "en",
     "name": "Timenote",
     "short_name": "Timenote",
+    "author": "Louis Couture",
+    "categories": ["utilities"],
     "scope": "https://zealous-sinoussi-214004.netlify.app/",
     "display": "standalone",
     "start_url": "/index.html",
@@ -12,6 +14,10 @@
     "orientation": "any",
     "related_applications": [],
     "prefer_related_applications": false,
+    "mauv_id": "U9GgIFdfbuhummPyG1Cy",
+    "mauv_links": {
+      "github": "https://github.com/Kibranoz/timenote"
+    },
     "icons": [{
         "src": "timenote icon.png",
         "sizes": "512x512",
