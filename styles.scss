@@ -40,34 +40,7 @@ html{
     margin-left: 1%;
     margin-right: 1%;
 }
-@media(prefers-color-scheme: dark){
-  body{
-    color:white;
-    background-color: black!important;
-  }
-  textarea.form-control{
-      background-color: black;
-      color:white;
-      border-color:white;
-  }
-  body > div.jumbotron.jumbotron-fluid.enGros{
-      border-color:white;
-      background-color: black;
-      border-style: dashed;
 
-  }
-  .engros{
-    background-color: black!important;
-  }
-
-  #timeEditor{
-      background-color: black;
-      border-style: dashed;
-      border-width:thick;
-      border-color:white;
-  }
-
-}
 #hamburger{
     justify-content: left!important;
 }
@@ -85,6 +58,7 @@ html{
 .menubar{
     padding-top: 10px;
     padding-bottom: 10px;
+    margin:auto;
 }
 .hour,.minute,.second{
     display: inline-block;
@@ -122,6 +96,35 @@ i:hover{
 .jumbotron.header{
     margin-bottom:unset;
 }
+@media(prefers-color-scheme: dark){
+  body{
+    color:white;
+    background-color: black!important;
+  }
+  textarea.form-control{
+      background-color: black;
+      color:white;
+      border-color:white;
+  }
+  body > div.jumbotron.jumbotron-fluid.enGros{
+      border-color:white;
+      background-color: black;
+      border-style: dashed;
+
+  }
+  .engros{
+    background-color: black!important;
+  }
+
+  #timeEditor{
+      background-color: black;
+      border-style: dashed;
+      border-width:thick;
+      border-color:white;
+  }
+
+}
+
 @media (max-width:768px){
     .grosIcone{
         font-size:40px;
