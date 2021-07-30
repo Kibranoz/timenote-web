@@ -7,7 +7,7 @@
     text-align:center;
     font-family: 'Press Start 2P',cursive;
     color:rgb(228, 243, 13);
-    background-color: rgb(11, 53, 18)
+    background-color: rgb(1, 82, 48)
 }
 html{
     overflow-x: hidden;
@@ -97,7 +97,6 @@ html{
 .header {
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
-    background-color: rgba(219, 204, 172, 0.911);
 }
 
 .grosIcone{
@@ -110,7 +109,8 @@ html{
 }
 body
 {
-    background-color: rgba(248, 237, 213, 0.774);
+    background-color: rgba(252, 223, 149, 0.774);
+
 }
 .hidden{
     display:none;
@@ -136,7 +136,6 @@ i:hover{
             text-align:center;
             font-family: 'Press Start 2P',cursive;
             color:rgb(228, 243, 13);
-            background-color: rgb(11, 53, 18);
         
         }
         .hour,.minute,.second{
@@ -151,7 +150,7 @@ i:hover{
         .header {
             text-align: center;
             font-family: 'Share Tech Mono', monospace;
-            background-color: rgba(219, 204, 172, 0.911);
+            //background-color: rgba(219, 204, 172, 0.911);
         }
         
         .grosIcone{
@@ -162,14 +161,8 @@ i:hover{
         .notearea{
             font-family: 'Share Tech Mono', monospace; 
         }
-        body
-        {
-            background-color: rgba(248, 237, 213, 0.774);
-        }
-        .menuBar{
-            padding-left: 3%;
-            padding-right: 3%;
-        }
+        
+       
         .hidden{
             display:none;
         }
