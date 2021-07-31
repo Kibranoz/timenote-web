@@ -11,6 +11,7 @@
 }
 html{
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 .row{
     margin-left: 0px!important;
@@ -56,9 +57,11 @@ html{
 
 }
 .menubar{
+    display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin:auto;
+    justify-content:space-evenly;
+
 }
 .hour,.minute,.second{
     display: inline-block;
@@ -191,12 +194,7 @@ i:hover{
                 font-size:38px;
                 align-content: center;
             }
-            @media (min-width:400px){
-            .row{
-                margin-left:6%;
-                margin-right:6%;
-            }
-        }
+          
     }
         @media (max-width:350px){
             .grosIcone{
