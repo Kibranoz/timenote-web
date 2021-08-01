@@ -12,7 +12,7 @@ var playTime = null;
 var pauseTime = null;
 class coursChrono {
   constructor() {
-    this.initializeTimer = new Date().getTime();
+    this.timeStartedAt = new Date().getTime();
     this.pauseStartedAt = 0;
     this.pauseEndedAt = 0;
     this.idNumber = 0;
@@ -20,12 +20,12 @@ class coursChrono {
     this.text = "";
   }
   printInitializeTimer() {
-    console.log(this.initializeTimer);
+    console.log(this.timeStartedAt);
   }
 
   calcTemps() {
     this.actualTime = new Date().getTime();
-    var timeDifference = (this.actualTime - this.initializeTimer) / 1000;
+    var timeDifference = (this.actualTime - this.timeStartedAt) / 1000;
     this.seconds = timeDifference % 60;
     this.minutes = (timeDifference / 60) % 60;
     this.hours = timeDifference / 3600;
@@ -51,7 +51,7 @@ class coursChrono {
   pauseEnd() {
     if (this.haveBeenPaused) {
       this.pauseEndedAt = new Date().getTime();
-      this.initializeTimer += this.pauseEndedAt - this.pauseStartedAt;
+      this.timeStartedAt += this.pauseEndedAt - this.pauseStartedAt;
       this.pauseEndedAt = 0;
       this.pauseStartedAt = 0;
     }
@@ -73,33 +73,9 @@ class coursChrono {
         .toString(),
     };
   }
-  setTimeUp(typeTime) {
-    console.log(typeTime);
-    this.timerSetCurrentSelectionValue = Number($("." + typeTime).html());
-    if (this.timerSetCurrentSelectionValue >= 59) {
-      this.timerSetCurrentSelectionValue = 0;
-      $("." + typeTime).html(this.timerSetCurrentSelectionValue.toString());
-    } else {
-      $("." + typeTime).html(
-        (this.timerSetCurrentSelectionValue + 1).toString()
-      );
-    }
-  }
-  setTimeLow(typeTime) {
-    this.timerSetCurrentSelectionValue = Number($("." + typeTime).html());
-    if (this.timerSetCurrentSelectionValue <= 0) {
-      this.timerSetCurrentSelectionValue = 59;
-      $("." + typeTime).html(this.timerSetCurrentSelectionValue.toString());
-    } else {
-      $("." + typeTime).html(
-        (this.timerSetCurrentSelectionValue - 1).toString()
-      );
-    }
-  }
-
 
   adjustTime() {
-    this.initializeTimer =
+    this.timeStartedAt =
       new Date().getTime() -
       (Number($(".hour input").val()) * 3600 +
         Number($(".minute input").val()) * 60 +
