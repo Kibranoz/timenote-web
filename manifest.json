@@ -4,7 +4,7 @@
     "name": "Timenote",
     "short_name": "Timenote",
     "scope": "https://timenote.app",
-    "display": "standalone",
+    "display": "fullscreen",
     "start_url": "https://timenote.app",
     "background_color": "#000000",
     "theme_color": "#000000",
