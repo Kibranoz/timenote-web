@@ -1,3 +1,7 @@
+This is the AGPL license, it states that if you use this software in your software, it must be open source under the same license. 
+ 
+ However, a commercial license is available. To get it, please contact me at louisrcouture@icloud.com
+                     
                     GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
 
