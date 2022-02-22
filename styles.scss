@@ -1,0 +1,219 @@
+:root{
+    font-family: 'Share Tech Mono', monospace;
+    color-scheme:light dark;
+}
+.engros{
+    font-size: 50px;
+    text-align:center;
+    font-family: 'Press Start 2P',cursive;
+    color:rgb(228, 243, 13);
+    background-color: rgb(1, 82, 48)
+}
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.row{
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+.siteTitle{
+    position: absolute;
+    left:12%;
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+.timeComponante input{
+    max-width: 120px;
+    font-size: 50px;
+    display: inline-block;
+    margin:auto;
+    background: transparent;
+    color:rgb(228, 243, 13);
+    border: none;
+
+}
+
+#timeEditor{
+    width:98%;
+    height:55%;
+    margin-top:5px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+#hamburger{
+    justify-content: left!important;
+}
+.timeHeader{
+    font-family: 'Press Start 2P',cursive;
+    color:rgb(228, 243, 13);
+    min-height:60px;
+    background-color: black;
+    //margin-bottom: 60px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom:5px;
+
+}
+.menubar{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content:space-evenly;
+
+}
+.hour,.minute,.second{
+    display: inline-block;
+    margin:auto;
+    border-bottom-style: dashed!important;
+    border-bottom-color:rgb(228, 243, 13)!important;
+}
+
+
+.header {
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.grosIcone{
+    font-size:50px;
+    display:flex;
+    justify-content: center;
+}
+.notearea{
+    font-family: 'Share Tech Mono', monospace; 
+}
+body
+{
+    background-color: rgba(252, 223, 149, 0.774);
+
+}
+.hidden{
+    display:none;
+}
+i:hover{
+    cursor:pointer;
+}
+
+.jumbotron.header{
+    margin-bottom:unset;
+}
+@media(prefers-color-scheme: dark){
+  body{
+    color:white;
+    background-color: black!important;
+  }
+  textarea.form-control{
+      background-color: black;
+      color:white;
+      border-color:white;
+  }
+  body > div.jumbotron.jumbotron-fluid.enGros{
+      border-color:white;
+      background-color: black;
+      border-style: dashed;
+
+  }
+  .engros{
+    background-color: black!important;
+  }
+
+  #timeEditor{
+      background-color: black;
+      border-style: dashed;
+      border-width:thick;
+      border-color:white;
+  }
+
+}
+
+@media (max-width:768px){
+    .grosIcone{
+        font-size:40px;
+        align-content: center;
+        }
+        .timeComponante input{
+            font-size:40px;
+        }
+    
+        .engros{
+            font-size: 50px;
+            text-align:center;
+            font-family: 'Press Start 2P',cursive;
+            color:rgb(228, 243, 13);
+        
+        }
+        .hour,.minute,.second{
+            display:inline;
+            border-bottom-style: dashed;
+            border-bottom-color:rgb(131, 131, 139);
+        }
+        
+        .selected{
+            border-bottom-color:rgb(228, 243, 13);; 
+        }
+        .header {
+            text-align: center;
+            font-family: 'Share Tech Mono', monospace;
+            //background-color: rgba(219, 204, 172, 0.911);
+        }
+        
+        .grosIcone{
+            font-size:50px;
+            display:flex;
+            justify-content: center;
+        }
+        .notearea{
+            font-family: 'Share Tech Mono', monospace; 
+        }
+        
+       
+        .hidden{
+            display:none;
+        }
+        i:hover{
+            cursor:pointer;
+        }
+        
+        .jumbotron.header{
+            margin-bottom:unset;
+        }
+        .sticky{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            opacity: 100%;
+            
+        }
+        @media (min-width:320px) and (max-width:580px){
+            .engros{
+                font-size: 40px;
+            }
+            .grosIcone{
+                font-size:38px;
+                align-content: center;
+            }
+          
+    }
+        @media (max-width:350px){
+            .grosIcone{
+                font-size:30px;
+                align-content: center;
+            }
+        
+            .row .col-sm{
+                width:unset!important;
+                padding-left:25px!important;
+                padding-right:25px!important;
+            }
+        
+        }
+    
+
+    .row .col-sm{
+        width:unset!important;
+        padding-left:25px!important;
+        padding-right:25px!important;
+    }
+}
