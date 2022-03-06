@@ -55,8 +55,11 @@
         "open": true, 
         "save": true 
       },
+      "path": {
+        "all": true 
+      },       
       "fs":{
-        "scope": ["$HOME"]
+        "scope": ["$HOME/*"]
       }
     },
     "windows": [

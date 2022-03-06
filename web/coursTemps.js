@@ -114,13 +114,15 @@ $(document).ready(function () {
   $(".note").click(() => {
     chron.addTimeToBottomOfText();
   });
-  $("i.save").click(() => {
+  $("i.save").click(async () => {
     
     var noteDate = new Date();
     var save = window.__TAURI__.dialog.save();
+    chron.getTextFromTextArea();
     save.then((result)=>{
       console.log(result);
-      window.__TAURI__.fs.writeFile({ path: window.__TAURI__.path.homeDir().result + "/" +  noteDate + '.txt', contents: chron.getTextFromTextArea() })
+
+       window.__TAURI__.invoke('write_file',{path:result+".txt",data:chron.text});
     })
   });
   $("i.updateTime").click(() => {
