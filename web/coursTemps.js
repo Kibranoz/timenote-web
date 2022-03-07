@@ -48,46 +48,37 @@ class coursChrono {
     }
   }
   getTextFromTextArea(){
-    this.text = $("#timeEditor").val()
+    this.text = document.querySelector("#timeEditor").value
   }
 
   addTimeToBottomOfText() {
-    this.text = $("#timeEditor").val()
+    this.text = document.querySelector("#timeEditor").value
     this.text += "\n-"+this.lastTime+": "
-    $("#timeEditor").val(this.text)
+    this.text = document.querySelector("#timeEditor").value = this.text
   }
-  saveNotes(id) {
-    this.notes[id] = {
-      time: $("#" + id + " .timeOfNote").text(),
-      note: $("#" + id + " textarea")
-        .val()
-        .toString(),
-    };
+
+  zeroIfNull(n){
+    if (!n) {
+      return "0"
+    }
+    else {
+      return n
+    }
+
   }
 
   adjustTime() {
+    console.log(document.querySelector(".hour input").value)
     this.timeStartedAt =
       new Date().getTime() -
-      (Number($(".hour input").val()) * 3600 +
-        Number($(".minute input").val()) * 60 +
-        Number($(".second input").val())) *
+      (parseInt(this.zeroIfNull(document.querySelector(".hour input").value),10)* 3600 +
+        parseInt(this.zeroIfNull(document.querySelector(".minute input").value),10) * 60 +
+        parseInt(this.zeroIfNull(document.querySelector(".second input").value),10)) *
         1000;
-    console.log($(".hour").text());
   }
 }
-$(document).ready(function () {
-  var lang = navigator.language.split("-")[0]
-    if (lang == "fr"){
-       $("#appTitle").html("Notes Temporelles");
-       $("#appDesc").html("Prenez des notes associés a un moment particulier de votre cours à distance ")
 
-    }
-    else{
-      $("#appTitle").text("Timenote");
-      $("#appDesc").text("Take notes associated to a particular timestamp in your online classes");
-  
-    }
-  $("i.play").click(() => {
+  document.querySelector("i.play").addEventListener("click", ()=>{
     clearInterval(pauseTime);
     pauseTime = null;
     if (!chron) {
@@ -97,47 +88,57 @@ $(document).ready(function () {
     chron.haveBeenPaused = false;
     if (!playTime) {
       playTime = setInterval(() => {
-        $("#temps").html(chron.calcTemps());
+        document.querySelector("#temps").innerHTML = chron.calcTemps()
       }, 1000);
     }
-    $(".play").addClass("hidden");
-    $(".pause").removeClass("hidden");
+    document.querySelector(".play").classList.add("hidden")
+    document.querySelector(".pause").classList.remove("hidden");
   });
-  $("i.pause").click(() => {
+  document.querySelector("i.pause").addEventListener("click",()=> {
     clearInterval(playTime);
     playTime = null;
-    $(".play").removeClass("hidden");
-    $(".pause").addClass("hidden");
+    document.querySelector(".pause").classList.add("hidden")
+    document.querySelector(".play").classList.remove("hidden");
     chron.pauseBegin();
     chron.haveBeenPaused = true;
   });
-  $(".note").click(() => {
+  document.querySelector(".note").addEventListener("click",() => {
     chron.addTimeToBottomOfText();
   });
-  $("i.save").click(async () => {
+  document.querySelector("i.save").addEventListener("click",async () => {
     
     var noteDate = new Date();
-    var save = window.__TAURI__.dialog.save();
-    chron.getTextFromTextArea();
+    try {  
+      
+      var save = window.__TAURI__.dialog.save();
+      chron.getTextFromTextArea();
     save.then((result)=>{
       console.log(result);
 
        window.__TAURI__.invoke('write_file',{path:result+".txt",data:chron.text});
-    })
+    }).catch((error)=>{console.log(error)})
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
+    
   });
-  $("i.updateTime").click(() => {
-      $("#timeAdjust").toggleClass("hidden")
+  document.querySelector("i.updateTime").addEventListener("click",() => {
+      document.querySelector("#timeAdjust").classList.toggle("hidden")
     if (chron){
-      $("i.play").trigger("click");
+      var clickEvent = new MouseEvent("click", { shiftKey: true });
+      document.querySelector("i.play").dispatchEvent(clickEvent)
     }
     if (!chron) {
       chron = new coursChrono();
     }
   });
-  $("i.approve").click(() => {
+  document.querySelector("i.approve").addEventListener("click",() => {
     chron.adjustTime();
-    $("i.play").trigger("click");
-    $("#timeAdjust").toggleClass("hidden")
+    var clickEvent = new MouseEvent("click", { shiftKey: true });
+      document.querySelector("i.play").dispatchEvent(clickEvent)
+      document.querySelector("#timeAdjust").classList.toggle("hidden")
   });
-});
+
 
