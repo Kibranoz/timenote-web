@@ -108,22 +108,16 @@ class coursChrono {
   document.querySelector("i.save").addEventListener("click",async () => {
     
     var noteDate = new Date();
-    try {  
-      
-      var save = window.__TAURI__.dialog.save();
-      chron.getTextFromTextArea();
-    save.then((result)=>{
-      console.log(result);
-
+    
+      chron.getTextFromTextArea(); 
+      window.__TAURI__.dialog.save().then((result)=>{
+       console.log(result);
        window.__TAURI__.invoke('write_file',{path:result+".txt",data:chron.text});
     }).catch((error)=>{console.log(error)})
       
-    } catch (error) {
-      console.log(error)
       
-    }
+    })
     
-  });
   document.querySelector("i.updateTime").addEventListener("click",() => {
       document.querySelector("#timeAdjust").classList.toggle("hidden")
     if (chron){
