@@ -109,7 +109,7 @@ class coursChrono {
     let fileHandle;
 
   // Destructure the one-element array.
-  [fileHandle] = await window.showOpenFilePicker({
+  [fileHandle] = await window.showSaveFilePicker({
     types: [
       {
         description: 'Text Files',
