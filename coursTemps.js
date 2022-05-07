@@ -49,6 +49,7 @@ class coursChrono {
   }
   getTextFromTextArea(){
     this.text = document.querySelector("#timeEditor").value
+    return this.text;
   }
 
   addTimeToBottomOfText() {
@@ -109,7 +110,7 @@ class coursChrono {
     let fileHandle;
 
   // Destructure the one-element array.
-  [fileHandle] = await window.showSaveFilePicker({
+  fileHandle = await window.showSaveFilePicker({
     types: [
       {
         description: 'Text Files',
@@ -121,7 +122,8 @@ class coursChrono {
   });
   // Do something with the file handle.
 
-const contents =  chron.getTextFromTextArea();
+const contents =  chron.getTextFromTextArea()
+
 
 
 const writable = await fileHandle.createWritable();
@@ -129,7 +131,6 @@ const writable = await fileHandle.createWritable();
   await writable.write(contents);
   // Close the file and write the contents to disk.
   await writable.close();    
-      chron.getTextFromTextArea();
       
       
     })
