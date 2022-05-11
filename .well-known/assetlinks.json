@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "app.netlify.zealous_sinoussi_214004.twa",
+                   "sha256_cert_fingerprints": ["69:32:54:29:B7:6D:10:2A:64:C8:BB:CD:38:E0:F4:50:67:97:2E:3E:2E:D4:6B:B8:4A:38:1A:20:43:1F:29:D9"] }
+    }]
