@@ -151,3 +151,27 @@ const writable = await fileHandle.createWritable();
       document.querySelector("i.play").dispatchEvent(clickEvent)
       document.querySelector("#timeAdjust").classList.toggle("hidden")
   });
+
+
+
+  document.querySelector("div #hamburger").addEventListener("click", () => {
+    document.querySelector(".showContextMenu").classList.toggle("hidden")
+  })
+
+document.querySelector("i.dark").addEventListener("click", ()=>{
+  document.querySelector("body").classList.add("dark");
+  document.querySelector("body").classList.remove("light");
+})
+
+document.querySelector("i.light").addEventListener("click", ()=>{
+  document.querySelector("body").classList.add("light");
+  document.querySelector("body").classList.remove("dark");
+})
+
+window.addEventListener("load",()=>{
+  const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+  if (useDark){
+    document.querySelector("body").classList.add("dark");
+  }
+}
+)
