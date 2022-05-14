@@ -169,9 +169,12 @@ document.querySelector("i.light").addEventListener("click", ()=>{
 })
 
 window.addEventListener("load",()=>{
-  const useDark = window.matchMedia("(prefers-color-scheme: dark)");
-  if (useDark){
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // dark mode
+
     document.querySelector("body").classList.add("dark");
-  }
+
+}
+
 }
 )
