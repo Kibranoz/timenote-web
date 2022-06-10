@@ -28,7 +28,6 @@
 }
 html{
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 .row{
     margin-left: 0px!important;
@@ -55,7 +54,7 @@ html{
 #timeEditor{
     width:98%;
 
-    height:50vh;
+    height:60vh;
 
   
 
@@ -166,5 +165,3 @@ body.dark textarea{
           border-style: dashed;
           border-width:thick;
           border-color:white;
-      }
-    

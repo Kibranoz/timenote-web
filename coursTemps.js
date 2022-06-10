@@ -36,6 +36,7 @@ class coursChrono {
     );
   }
 
+
   pauseBegin() {
     this.pauseStartedAt = new Date().getTime();
   }
@@ -178,3 +179,6 @@ window.addEventListener("load",()=>{
 
 }
 )
+
+
+
