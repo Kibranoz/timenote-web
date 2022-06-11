@@ -198,7 +198,7 @@ if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
 )
 
 
-window.beforeunload = () => {
+window.onbeforeunload = (event) => {
   localStorage.setItem("timeBeginning", chron.timeStartedAt)
   localStorage.setItem("pauseBeginning", chron.pauseStartedAt)
   localStorage.setItem("text", document.querySelector("#timeEditor").value)
