@@ -185,9 +185,11 @@ window.addEventListener("load",()=>{
 if (!chron) {
   chron = new coursChrono()
 }
-chron.timeStartedAt = localStorage.getItem("timeBeginning")
-chron.pauseStartedAt  = localStorage.getItem("pauseBeginning")
+chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning"))
+
+chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning"))
 document.querySelector("#timeEditor").value = localStorage.getItem("text")
+console.log(text+"text")
 if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
   simulateClickPlay()
 }
@@ -199,7 +201,7 @@ if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
 window.beforeunload = () => {
   localStorage.setItem("timeBeginning", chron.timeStartedAt)
   localStorage.setItem("pauseBeginning", chron.pauseStartedAt)
-  localStorage.setItem("text", document.querySelector("#timeEditor"))
+  localStorage.setItem("text", document.querySelector("#timeEditor").value)
 
 }
 
