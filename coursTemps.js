@@ -183,7 +183,7 @@ window.addEventListener("load",()=>{
 }
 
 if (!chron) {
-  chron = coursChrono()
+  chron = new coursChrono()
 }
 chron.timeStartedAt = localStorage.getItem("timeBeginning")
 chron.pauseStartedAt  = localStorage.getItem("pauseBeginning")
@@ -195,7 +195,7 @@ if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
 )
 
 
-window.onbeforeunload() = () => {
+window.beforeunload = () => {
   localStorage.setItem("timeBeginning", chron.timeStartedAt)
   localStorage.setItem("pauseBeginning", chron.pauseStartedAt)
   localStorage.setItem("text", document.querySelector("#timeEditor"))
