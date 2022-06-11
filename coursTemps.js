@@ -187,6 +187,7 @@ if (!chron) {
 }
 chron.timeStartedAt = localStorage.getItem("timeBeginning")
 chron.pauseStartedAt  = localStorage.getItem("pauseBeginning")
+document.querySelector("#timeEditor").value = localStorage.getItem("text")
 if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
   simulateClickPlay()
 }
