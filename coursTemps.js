@@ -135,6 +135,13 @@ const writable = await fileHandle.createWritable();
       
       
     })
+
+function simulateClickPlay () {
+  var clickEvent = new MouseEvent("click", { shiftKey: true });
+  document.querySelector("i.play").dispatchEvent(clickEvent)
+  document.querySelector("#timeAdjust").classList.toggle("hidden")
+  
+}
     
   document.querySelector("i.updateTime").addEventListener("click",() => {
       document.querySelector("#timeAdjust").classList.toggle("hidden")
@@ -148,9 +155,7 @@ const writable = await fileHandle.createWritable();
   });
   document.querySelector("i.approve").addEventListener("click",() => {
     chron.adjustTime();
-    var clickEvent = new MouseEvent("click", { shiftKey: true });
-      document.querySelector("i.play").dispatchEvent(clickEvent)
-      document.querySelector("#timeAdjust").classList.toggle("hidden")
+    simulateClickPlay()
   });
 
 
@@ -177,8 +182,25 @@ window.addEventListener("load",()=>{
 
 }
 
+if (!chron) {
+  chron = coursChrono()
+}
+chron.timeStartedAt = localStorage.getItem("timeBeginning")
+chron.pauseStartedAt  = localStorage.getItem("pauseBeginning")
+if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
+  simulateClickPlay()
+}
+
 }
 )
+
+
+window.onbeforeunload() = () => {
+  localStorage.setItem("timeBeginning", chron.timeStartedAt)
+  localStorage.setItem("pauseBeginning", chron.pauseStartedAt)
+  localStorage.setItem("text", document.querySelector("#timeEditor"))
+
+}
 
 
 
