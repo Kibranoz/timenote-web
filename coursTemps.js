@@ -187,16 +187,15 @@ if (!chron) {
   chron = new coursChrono()
 }
 
-chron.haveBeenPaused = localStorage.getItem("haveBeenPaused") ?? false
 
 chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Datetime.now() )
 
-if (chron.haveBeenPaused){
+if (localStorage.getItem("timeBeginning") !== null ){
+
   chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning") ?? new Datetime.now() ) 
 
 }
 
-if (chron.pauseStartedAt != 0)
 document.querySelector("#timeEditor").value = localStorage.getItem("text")
 
 chron.text = localStorage.getItem("text")
