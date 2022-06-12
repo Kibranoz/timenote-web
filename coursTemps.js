@@ -183,11 +183,15 @@ window.addEventListener("load",()=>{
 }
 
 
-if (!chron) {
+if (!localStorage.getItem("timeBeginning")) {
   return;
 
 }
 
+
+if (!chron){
+  chron = new coursChrono();
+}
 
 chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Date().now() )
 
