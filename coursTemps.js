@@ -184,17 +184,16 @@ window.addEventListener("load",()=>{
 
 
 if (!chron) {
-  chron = new coursChrono()
-}
-
-
-chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Datetime.now() )
-
-if (localStorage.getItem("timeBeginning") !== null ){
-
-  chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning") ?? new Datetime.now() ) 
+  return;
 
 }
+
+
+chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Date().now() )
+
+
+  chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning") ?? new Date().now() ) 
+
 
 document.querySelector("#timeEditor").value = localStorage.getItem("text")
 
