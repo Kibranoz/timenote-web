@@ -186,10 +186,19 @@ window.addEventListener("load",()=>{
 if (!chron) {
   chron = new coursChrono()
 }
-chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning") ?? new Datetime.now() ) 
 
-chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Datetime.now() ) 
+chron.haveBeenPaused = localStorage.getItem("haveBeenPaused") ?? false
+
+chron.pauseStartedAt  = parseInt(localStorage.getItem("pauseBeginning") ?? new Datetime.now() )
+
+if (chron.haveBeenPaused){
+  chron.timeStartedAt = parseInt(localStorage.getItem("timeBeginning") ?? new Datetime.now() ) 
+
+}
+
+if (chron.pauseStartedAt != 0)
 document.querySelector("#timeEditor").value = localStorage.getItem("text")
+
 chron.text = localStorage.getItem("text")
 console.log(text+"text")
 if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
@@ -203,6 +212,7 @@ window.onunload = (event) => {
   localStorage.setItem("timeBeginning", chron.timeStartedAt)
   localStorage.setItem("pauseBeginning", chron.pauseStartedAt)
   localStorage.setItem("text", document.querySelector("#timeEditor").value)
+  localStorage.setItem("haveBeenPaused", chron.haveBeenPaused )
 
 }
 
