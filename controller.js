@@ -1,5 +1,6 @@
 //import localforage from "./localforage";
 
+
 localforage.setDriver([
   localforage.INDEXEDDB,
   localforage.WEBSQL,
@@ -32,6 +33,13 @@ document.querySelector("i.play").addEventListener("click", ()=>{
   });
   document.querySelector(".note").addEventListener("click",() => {
     chron.addTimeToBottomOfText();
+
+
+    localforage.setItem("timeBeginning", chron.timeStartedAt)
+    localforage.setItem("pauseBeginning", chron.pauseStartedAt)
+    localforage.setItem("text", document.querySelector("#timeEditor").value)
+    localforage.setItem("haveBeenPaused", chron.haveBeenPaused )
+  
   });
   document.querySelector("i.save").addEventListener("click",async () => {
     let fileHandle;
@@ -150,11 +158,13 @@ console.log(text+"text")
 if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
   simulateClickPlay()
 }
+localforage.removeItem("text")
 })
 
-,
 
-window.onbeforeunload = (event) => {
+window.onunload = (event) => {
+
+  // do this elsewhere 
   localforage.setItem("timeBeginning", chron.timeStartedAt)
   localforage.setItem("pauseBeginning", chron.pauseStartedAt)
   localforage.setItem("text", document.querySelector("#timeEditor").value)
