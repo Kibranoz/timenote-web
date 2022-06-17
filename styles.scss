@@ -20,7 +20,9 @@
   'opsz' 48
 }
 .engros{
-    font-size: 50px;
+    padding-top:30px;
+    padding-bottom:30px;
+    font-size: 40px;
     text-align:center;
     font-family: 'Press Start 2P',cursive;
     color:rgb(228, 243, 13);
@@ -41,7 +43,7 @@ html{
 }
 .timeComponante input{
     max-width: 120px;
-    font-size: 50px;
+    font-size: 40px;
     display: inline-block;
     margin:auto;
     background: transparent;
@@ -53,8 +55,7 @@ html{
 
 #timeEditor{
     width:98%;
-
-    height:60vh;
+    height:65%;
 
   
 
@@ -137,10 +138,6 @@ body.dark textarea{
     background-color: black;
     color:white;
 }
-
-
-
-
     body.dark{
         color:white;
         background-color: black!important;
@@ -150,7 +147,7 @@ body.dark textarea{
           color:white;
           border-color:white;
       }
-      body.dark > div.jumbotron.jumbotron-fluid.enGros{
+      body.dark > div.enGros{
           border-color:white;
           background-color: black;
           border-style: dashed;
@@ -165,3 +162,14 @@ body.dark textarea{
           border-style: dashed;
           border-width:thick;
           border-color:white;
+      }
+
+
+@media (max-height:720px){
+    #timeEditor{
+        height:50%;
+    }
+    .engros{
+        font-size:30px;
+    }
+}
