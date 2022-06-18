@@ -177,21 +177,15 @@ localforage.removeItem("text")
 })
 
 
+document.addEventListener("visibilitychange",(event) => {
 
-  window.onbeforeunload = (event) => {
-
-  // do this elsewhere 
+  if (document.visibilityState === "hidden"){
   localforage.setItem("timeBeginning", chron.timeStartedAt)
   localforage.setItem("pauseBeginning", chron.pauseStartedAt)
   localforage.setItem("text", document.querySelector("#timeEditor").value)
   localforage.setItem("haveBeenPaused", chron.haveBeenPaused )
 
-  
+  }
 
-}
-
+})
   })
-
-
-
- // })
