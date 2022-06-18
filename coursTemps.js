@@ -9,6 +9,7 @@ class coursChrono {
     this.idNumber = 0;
     this.haveBeenPaused = false;
     this.text = "";
+    this.inPause = true;
   }
   printInitializeTimer() {
     console.log(this.timeStartedAt);
@@ -39,7 +40,7 @@ class coursChrono {
 
   pauseBegin() {
     this.pauseStartedAt = new Date().getTime();
-  }
+    }
   pauseEnd() {
     if (this.haveBeenPaused) {
       this.pauseEndedAt = new Date().getTime();

@@ -1,6 +1,8 @@
 //import localforage from "./localforage";
 
 
+
+
 localforage.setDriver([
   localforage.INDEXEDDB,
   localforage.WEBSQL,
@@ -33,12 +35,13 @@ document.querySelector("i.play").addEventListener("click", ()=>{
   });
   document.querySelector(".note").addEventListener("click",() => {
     chron.addTimeToBottomOfText();
-
-
+/** 
     localforage.setItem("timeBeginning", chron.timeStartedAt)
     localforage.setItem("pauseBeginning", chron.pauseStartedAt)
     localforage.setItem("text", document.querySelector("#timeEditor").value)
     localforage.setItem("haveBeenPaused", chron.haveBeenPaused )
+
+    **/
   
   });
   document.querySelector("i.save").addEventListener("click",async () => {
@@ -126,20 +129,32 @@ if (!chron){
   chron = new coursChrono();
 }
 
-localforage.getItem("pauseBeginning", (err,value) =>{
-  chron.pauseStartedAt = parseInt(value) || new Date.getTime()
-  //console.log("pause error")
-  console.log("pauseerr"+err)
-})
+
+localforage.getItem("haveBeenPaused",(err,val) => {
+  console.log("en pause" + val)
+  chron.haveBeenPaused = val;
+
+  
+
 
 localforage.getItem("timeBeginning", (err,value) =>{
-  chron.timeStartedAt = parseInt(value) || new Date.geTIme()
+  chron.timeStartedAt = parseInt(value) || new Date().getTime()
   console.log("VALEUER"+ value)
 
 
   console.log(err)
 })
 
+if (val) {
+
+  localforage.getItem("pauseBeginning", (err,value) =>{
+    chron.pauseStartedAt = parseInt(value) || new Date().getTime()
+    console.log(value)
+    console.log("time difference" + (chron.pauseStartedAt - new Date().getTime()).toString())
+  })
+  
+    }
+})
 
 
 localforage.getItem("text").then((val)=>{
@@ -162,7 +177,8 @@ localforage.removeItem("text")
 })
 
 
-window.onunload = (event) => {
+
+  window.onbeforeunload = (event) => {
 
   // do this elsewhere 
   localforage.setItem("timeBeginning", chron.timeStartedAt)
@@ -175,3 +191,7 @@ window.onunload = (event) => {
 }
 
   })
+
+
+
+ // })
