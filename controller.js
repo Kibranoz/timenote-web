@@ -72,6 +72,15 @@ const writable = await fileHandle.createWritable();
       
     })
 
+  document.querySelector("i.share").addEventListener("click", async () => {
+    const shareData  = {
+      title : new Date(),
+      text : document.querySelector("#timeEditor")
+    }
+
+    await navigator.share(shareData)
+  })
+
 function simulateClickPlay () {
   var clickEvent = new MouseEvent("click", { shiftKey: true });
   document.querySelector("i.play").dispatchEvent(clickEvent)
