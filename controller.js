@@ -1,8 +1,5 @@
 //import localforage from "./localforage";
 
-
-
-
 localforage.setDriver([
   localforage.INDEXEDDB,
   localforage.WEBSQL,
@@ -35,14 +32,6 @@ document.querySelector("i.play").addEventListener("click", ()=>{
   });
   document.querySelector(".note").addEventListener("click",() => {
     chron.addTimeToBottomOfText();
-/** 
-    localforage.setItem("timeBeginning", chron.timeStartedAt)
-    localforage.setItem("pauseBeginning", chron.pauseStartedAt)
-    localforage.setItem("text", document.querySelector("#timeEditor").value)
-    localforage.setItem("haveBeenPaused", chron.haveBeenPaused )
-
-    **/
-  
   });
   document.querySelector("i.save").addEventListener("click",async () => {
     let fileHandle;
@@ -71,6 +60,15 @@ const writable = await fileHandle.createWritable();
   await writable.close();    
       
     })
+
+  document.querySelector("i.share").addEventListener("click", async (event) => {
+    const shareData  = {
+      title : new Date(),
+      text : document.querySelector("#timeEditor")
+    }
+
+    await navigator.share(shareData)
+  })
 
 function simulateClickPlay () {
   var clickEvent = new MouseEvent("click", { shiftKey: true });
@@ -117,7 +115,11 @@ window.addEventListener("load",()=>{
     document.querySelector("body").classList.add("dark");
 
 }
-
+if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+  // some code..
+  document.querySelector("i.save").classList.add("hidden")
+  document.querySelector("i.share").classList.remove("hidden");
+ }
 
 if (!localforage.getItem("timeBeginning")) {
   return;
@@ -164,12 +166,9 @@ localforage.getItem("text").then((val)=>{
   console.log(val)
 })
 .catch((error)=>{
-  console.log("error")
-  console.log(error)
+
 })
 
-
-console.log(text+"text")
 if (chron.pauseStartedAt == 0 && chron.haveBeenPaused){
   simulateClickPlay()
 }
