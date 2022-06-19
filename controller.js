@@ -74,7 +74,7 @@ const writable = await fileHandle.createWritable();
 
   document.querySelector("i.share").addEventListener("click", async () => {
     const shareData  = {
-      title : new Date(),
+      title : new Date().toDateString(),
       text : document.querySelector("#timeEditor")
     }
 
@@ -126,6 +126,12 @@ window.addEventListener("load",()=>{
     document.querySelector("body").classList.add("dark");
 
 }
+
+if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
+  // some code..
+  document.querySelector("i.save").classList.add("hidden")
+  document.querySelector("i.share").classList.remove("hidden");
+ }
 
 
 if (!localforage.getItem("timeBeginning")) {
