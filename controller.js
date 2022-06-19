@@ -75,7 +75,7 @@ const writable = await fileHandle.createWritable();
   document.querySelector("i.share").addEventListener("click", async () => {
     const shareData  = {
       title : new Date().toDateString(),
-      text : document.querySelector("#timeEditor")
+      text : document.querySelector("#timeEditor").value
     }
 
     await navigator.share(shareData)
