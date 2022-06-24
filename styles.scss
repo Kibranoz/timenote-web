@@ -23,10 +23,11 @@
     padding-top:30px;
     padding-bottom:30px;
     font-size: 40px;
-    text-align:center;
+    text-align:
+    center;
     font-family: 'Press Start 2P',cursive;
-    color:rgb(228, 243, 13);
-    background-color: rgb(1, 82, 48)
+    color: rgb(228 243 13);
+    background-color: rgb(8 155 93);
 }
 html{
     overflow-x: hidden;
@@ -69,14 +70,13 @@ html{
 }
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
-    color:rgb(228, 243, 13);
+    color: rgb(228, 243, 13);
     min-height:60px;
     background-color: black;
     //margin-bottom: 60px;
     text-align: center;
     padding-top: 5px;
     padding-bottom:5px;
-
 }
 .menubar{
     display: flex;
@@ -108,8 +108,7 @@ html{
 }
 body
 {
-    background-color: rgba(252, 223, 149, 0.774);
-
+    background-color: rgb(155 145 120 / 40%);
 }
 .hidden{
     display:none;
@@ -155,6 +154,7 @@ body.dark textarea{
       }
       body.dark .engros{
         background-color: black!important;
+        color:rgb(228, 243, 13)
       }
     
       body.dark #timeEditor{
