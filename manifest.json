@@ -17,24 +17,24 @@
     "icons": [
 
       {
-        "src": "timenote icon pink 1024.png",
+        "src": "timenote_icon_pink_1024.png",
         "sizes": "1024x1024",
         "type": "image/png",
         "purpose": "any maskable"
       },
       {
-        "src": "timenote logo pink.png",
+        "src": "timenote_icon_pink_512.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "any maskable"
       },
       {
-        "src": "timenote logo pink 256.png",
+        "src": "timenote_icon_pink_256.png",
         "sizes": "256x256",
         "type": "image/png"
       },
       {
-        "src": "timenote logo 256.png",
+        "src": "timenote_icon_pink_256.png",
         "type": "image/png",
         "sizes": "192x192"
       }],
