@@ -23,7 +23,6 @@ const el = document.createElement('pwa-update');
 document.body.appendChild(el);
 
 </script>
-<!-- <script src="https://cdn.rawgit.com/mozilla/localForage/master/dist/localforage.js"></script> -->
 <script src = "localforage.js"></script>
 <script src = "coursTemps.js" defer></script>
 
@@ -35,7 +34,7 @@ document.body.appendChild(el);
 
  <div class ="container-fluid timeHeader">
     <div class = "row">
-       <div class = "col"> <i class="material-symbols-outlined grosIcone" id = "hamburger">
+       <div class = "col"> <i class="material-symbols-outlined grosIcone" id = "hamburger" aria-label="menu">
          menu
        </i> </div>
        <div class = "col-9 siteTitle">Timenote</div>
@@ -45,11 +44,11 @@ document.body.appendChild(el);
  <div class = "hidden showContextMenu ">
     <div class = "row align-item">
 
-      <i class="material-symbols-outlined grosIcone dark lean">
+      <i class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
          dark_mode
       </i>
 
-         <i class="material-symbols-outlined  grosIcone light lean">
+         <i class="material-symbols-outlined  grosIcone light lean" aria-label="switch to light mode">
             light_mode
          </i>
     </div>
@@ -61,26 +60,26 @@ document.body.appendChild(el);
 <div class = "container-fluid" id = "temps">
 </div>
 <div class = "container-fluid enGros row hidden" id = "timeAdjust"> 
-      <div class="hour timeComponante col-xs span3" timeDiv = "hour"><input type="number"></input></div>:<div class="minute timeComponante col-xs span3" timeDiv="minute"><input type="number"></div>:<div class ="second timeComponante selected col-xs span3" timeDiv = "second"><input type="number"></div>
+      <div class="hour timeComponante col-xs span3" timeDiv = "hour"><input type="number" aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3" timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div class ="second timeComponante selected col-xs span3" timeDiv = "second"><input type="number" aria-label="enter seconds here"></div>
    <div class= "col-xs span3">
-      <i class= "material-symbols-outlined md-50 grosIcone approve"> thumb_up_alt </i>
+      <i class= "material-symbols-outlined md-50 grosIcone approve" aria-label="enter time and play"> thumb_up_alt </i>
    </div>
 </div>
 </div>
 <div class = "row container-fluid menuBar">
    <div class = "span3">
-      <i class= "material-symbols-outlined md-50 grosIcone updateTime">update</i>
+      <i class= "material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time">update</i>
    </div>
     <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone note">note_add</i>
+    <i class= "material-symbols-outlined md-50 grosIcone note"aria-label="add a note">note_add</i>
  </div>
  <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone hidden pause">pause</i>
-    <i class= "material-symbols-outlined md-50 grosIcone play">play_arrow</i>
+    <i class= "material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time">pause</i>
+    <i class= "material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer">play_arrow</i>
  </div>
  <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone save">save</i>
-    <i class= "material-symbols-outlined md-50 grosIcone share hidden">share</i>
+    <i class= "material-symbols-outlined md-50 grosIcone save" aria-label="save">save</i>
+    <i class= "material-symbols-outlined md-50 grosIcone share hidden" aria-label="share">share</i>
 
  </div>
 </div>
