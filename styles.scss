@@ -29,7 +29,7 @@
     color: rgb(252 ,251, 27);
     background-color: rgb(8 155 93);
 }
-html{
+html, body{
     overflow-x: hidden;
 }
 .row{
@@ -57,10 +57,8 @@ html{
 #timeEditor{
     width:98%;
     height:65%;
-
-  
-
-    margin-top:5px;
+    overflow-y: scroll;
+    margin-top: 5px;
     margin-left: 1%;
     margin-right: 1%;
 }
