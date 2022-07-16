@@ -4,7 +4,7 @@
     "name": "Timenote",
     "short_name": "Timenote",
     "scope": "https://timenote.app",
-    "display": "fullscreen",
+    "display": "standalone",
     "display_override": ["window-controls-overlay"],
     "start_url": "https://timenote.app",
     "background_color": "#000000",
