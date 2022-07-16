@@ -57,6 +57,7 @@ html, body{
     width:98%;
     height:65%;
     overflow-y: scroll;
+    z-index: 0;
     margin-top: 5px;
     margin-left: 1%;
     margin-right: 1%;
@@ -111,7 +112,7 @@ body
     display:none;
 }
 i:hover{
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .jumbotron.header{
