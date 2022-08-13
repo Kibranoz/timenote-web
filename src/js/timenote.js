@@ -1,7 +1,7 @@
 var chron = null;
 var playTime = null;
 var pauseTime = null;
-class coursChrono {
+class timeNote {
   constructor() {
     this.timeStartedAt = new Date().getTime();
     this.pauseStartedAt = 0;
@@ -82,4 +82,4 @@ class coursChrono {
 }
 
 
-
+export default timeNote;

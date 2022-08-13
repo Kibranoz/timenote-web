@@ -1,5 +1,13 @@
 {
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
   "dependencies": {
-    "localforage": "^1.10.0"
+    "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.10.0"
   }
 }
