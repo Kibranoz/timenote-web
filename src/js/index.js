@@ -114,7 +114,7 @@ localforage.setDriver([
     document.querySelector("body").classList.remove("dark");
   })
   
-  window.addEventListener("load",()=>{
+  window.addEventListener("load",async ()=>{
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // dark mode
   
@@ -127,25 +127,19 @@ localforage.setDriver([
     document.querySelector("i.save").classList.add("hidden")
     document.querySelector("i.share").classList.remove("hidden");
    }
-  
-  
-  if (!localforage.getItem("timeBeginning")) {
-    return;
-  
-  }
-  
+
+   let timeBeginning = await localforage.getItem("timeBeginning")
+
+  if (timeBeginning.value === 0 || timeBeginning.value === null) {
+    return
+   }
   
   if (!timenote) {
     timenote = new timeNote();
   }
   
-  
   localforage.getItem("isPaused",(err,val) => {
-    console.log("en pause" + val)
     timenote.isPaused = val;
-  
-    
-  
   
   localforage.getItem("timeBeginning", (err,value) =>{
     timenote.timeStartedAt = parseInt(value) || new Date().getTime()
@@ -154,13 +148,8 @@ localforage.setDriver([
   })
   
   if (val) {
-  
     localforage.getItem("pauseBeginning", (err,value) =>{
       timenote.pauseStartedAt = parseInt(value) || new Date().getTime()
-      console.log(value)
-      console.log("time difference" + (timenote.pauseStartedAt - new Date().getTime()).toString())
-
-      
     })
       }
       else {
