@@ -18,7 +18,7 @@ localforage.setDriver([
         timenote = new timeNote();
       }
       timenote.pauseEnd();
-      timenote.haveBeenPaused = false;
+      timenote.isPaused = false;
       if (!playTime) {
         playTime = setInterval(() => {
           document.querySelector("#temps").innerHTML = timenote.calcTemps()
@@ -33,17 +33,10 @@ localforage.setDriver([
       document.querySelector(".pause").classList.add("hidden")
       document.querySelector(".play").classList.remove("hidden");
       timenote.pauseBegin();
-      timenote.haveBeenPaused = true;
+      timenote.isPaused = true;
     });
     document.querySelector(".note").addEventListener("click",() => {
       timenote.addTimeToBottomOfText();
-  /** 
-      localforage.setItem("timeBeginning", timenote.timeStartedAt)
-      localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
-      localforage.setItem("text", document.querySelector("#timeEditor").value)
-      localforage.setItem("haveBeenPaused", timenote.haveBeenPaused )
-  
-      **/
     
     });
     document.querySelector("i.save").addEventListener("click",async () => {
@@ -86,7 +79,7 @@ localforage.setDriver([
   function simulateClickPlay () {
     var clickEvent = new MouseEvent("click", { shiftKey: true });
     document.querySelector("i.play").dispatchEvent(clickEvent)
-    document.querySelector("#timeAdjust").classList.toggle("hidden")
+    document.querySelector("#timeAdjust").classList.add("hidden")
     
   }
       
@@ -142,14 +135,14 @@ localforage.setDriver([
   }
   
   
-  if (!timenote){
+  if (!timenote) {
     timenote = new timeNote();
   }
   
   
-  localforage.getItem("haveBeenPaused",(err,val) => {
+  localforage.getItem("isPaused",(err,val) => {
     console.log("en pause" + val)
-    timenote.haveBeenPaused = val;
+    timenote.isPaused = val;
   
     
   
@@ -157,8 +150,6 @@ localforage.setDriver([
   localforage.getItem("timeBeginning", (err,value) =>{
     timenote.timeStartedAt = parseInt(value) || new Date().getTime()
     console.log("VALEUER"+ value)
-  
-  
     console.log(err)
   })
   
@@ -168,8 +159,14 @@ localforage.setDriver([
       timenote.pauseStartedAt = parseInt(value) || new Date().getTime()
       console.log(value)
       console.log("time difference" + (timenote.pauseStartedAt - new Date().getTime()).toString())
+
+      
     })
-    
+      }
+      else {
+        if (timenote.pauseStartedAt == 0 && !timenote.isPaused){
+          simulateClickPlay()
+        }
       }
   })
   
@@ -186,10 +183,6 @@ localforage.setDriver([
   })
   
   
-  console.log(text+"text")
-  if (timenote.pauseStartedAt == 0 && timenote.haveBeenPaused){
-    simulateClickPlay()
-  }
   localforage.removeItem("text")
   })
   
@@ -200,7 +193,7 @@ localforage.setDriver([
     localforage.setItem("timeBeginning", timenote.timeStartedAt)
     localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
     localforage.setItem("text", document.querySelector("#timeEditor").value)
-    localforage.setItem("haveBeenPaused", timenote.haveBeenPaused )
+    localforage.setItem("isPaused", timenote.isPaused )
   
     }
   
