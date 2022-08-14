@@ -7,7 +7,7 @@ class timeNote {
     this.pauseStartedAt = 0;
     this.pauseEndedAt = 0;
     this.idNumber = 0;
-    this.haveBeenPaused = false;
+    this.isPaused = false;
     this.text = "";
     this.inPause = true;
   }
@@ -42,7 +42,7 @@ class timeNote {
     this.pauseStartedAt = new Date().getTime();
     }
   pauseEnd() {
-    if (this.haveBeenPaused) {
+    if (this.isPaused) {
       this.pauseEndedAt = new Date().getTime();
       this.timeStartedAt += this.pauseEndedAt - this.pauseStartedAt;
       this.pauseEndedAt = 0;
