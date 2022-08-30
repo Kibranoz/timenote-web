@@ -21,7 +21,7 @@
 .engros{
     padding-top:30px;
     padding-bottom:30px;
-    font-size: 40px;
+    font-size: 30px;
     text-align:
     center;
     font-family: 'Press Start 2P',cursive;
@@ -35,19 +35,24 @@ html, body{
     height: 100%;
 }
 .row{
-    margin-left: 0px!important;
-    margin-right: 0px!important;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    width: 100%;
+
+
 }
 .siteTitle{
-    position: absolute;
-    left:12%;
-    padding-top: 5px;
-    padding-bottom:5px;
+    align-self: center;
+    justify-self: center;
+    position: relative;
     flex-grow:1;
 }
 .timeComponante input{
     max-width: 120px;
-    font-size: 40px;
+    font-size: 30px;
     display: inline-block;
     margin:auto;
     background: transparent;
@@ -67,6 +72,9 @@ html, body{
 
 #hamburger{
     justify-content: left;
+    font-size:30px;
+    display: flex;
+    justify-content: flex-start;
 }
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
@@ -96,8 +104,9 @@ html, body{
 }
 
 .grosIcone{
-    font-size:50px;
-    display:flex;
+    font-size: 30px;
+    display:
+    flex;
     justify-content: center;
 }
 .notearea{
