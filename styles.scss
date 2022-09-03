@@ -45,10 +45,12 @@ html, body{
 
 }
 .siteTitle{
-    align-self: center;
-    justify-self: center;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     flex-grow:1;
+    z-index: 1;
+    width: 100%;
 }
 .timeComponante input{
     max-width: 120px;
@@ -74,7 +76,9 @@ html, body{
     justify-content: left;
     font-size:30px;
     display: flex;
-    justify-content: flex-start;
+    justify-self: flex-start;
+    z-index: 2;
+    align-self: flex-start;
 }
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
@@ -133,6 +137,9 @@ i:hover{
     color: rgb(228, 243, 13);
 }
 
+.invisible {
+    visibility: hidden;
+}
 
 textarea{
     background-color: white;
