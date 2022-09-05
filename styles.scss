@@ -51,6 +51,8 @@ html, body{
     flex-grow:1;
     z-index: 1;
     width: 100%;
+    -webkit-app-region: drag;
+    app-region: drag;
 }
 .timeComponante input{
     max-width: 120px;
