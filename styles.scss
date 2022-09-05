@@ -82,6 +82,11 @@ html, body{
     z-index: 2;
     align-self: flex-start;
 }
+
+#hamburger, .showContextMenu i {
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+}
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
     color: rgb(228, 243, 13);
