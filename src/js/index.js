@@ -19,17 +19,19 @@ localforage.setDriver([
       }
       timenote.pauseEnd();
       timenote.isPaused = false;
-      if (!playTime) {
         playTime = setInterval(() => {
+          if (!timenote.isPaused) {
           document.querySelector("#temps").innerHTML = timenote.calcTemps()
+          }
+          localforage.setItem("timeBeginning", timenote.timeStartedAt)
+          localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
+          localforage.setItem("text", document.querySelector("#timeEditor").value)
+          localforage.setItem("isPaused", timenote.isPaused )
         }, 1000);
-      }
       document.querySelector(".play").classList.add("hidden")
       document.querySelector(".pause").classList.remove("hidden");
     });
     document.querySelector("i.pause").addEventListener("click",()=> {
-      clearInterval(playTime);
-      playTime = null;
       document.querySelector(".pause").classList.add("hidden")
       document.querySelector(".play").classList.remove("hidden");
       timenote.pauseBegin();
@@ -169,29 +171,5 @@ localforage.setDriver([
     console.log(err)
   })
   
-  
   })
-  
-  
-  document.addEventListener("visibilitychange", (event) => {
-      //localforage.clear()
-      if (document.visibilityState === "hidden") {
-    localforage.setItem("timeBeginning", timenote.timeStartedAt)
-    localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
-    localforage.setItem("text", document.querySelector("#timeEditor").value)
-    localforage.setItem("isPaused", timenote.isPaused )
-      }
-
-  })
-
-  document.addEventListener("pagehide", (event) => {
-    //localforage.clear()
-  localforage.setItem("timeBeginning", timenote.timeStartedAt)
-  localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
-  localforage.setItem("text", document.querySelector("#timeEditor").value)
-  localforage.setItem("isPaused", timenote.isPaused )
-    
-
 })
-    })
-  
