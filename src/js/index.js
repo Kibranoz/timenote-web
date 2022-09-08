@@ -140,6 +140,7 @@ localforage.setDriver([
   
   localforage.getItem("isPaused",(err,value) => {
     timenote.isPaused = value;
+    console.log("en pause", value)
   
   localforage.getItem("timeBeginning", (err,value) =>{
     timenote.timeStartedAt = parseInt(value) || new Date().getTime()
@@ -153,7 +154,7 @@ localforage.setDriver([
     })
       }
       else {
-        if (timenote.pauseStartedAt == 0 && !timenote.isPaused){
+        if (timenote.pauseStartedAt == 0){
           simulateClickPlay()
         }
       }
@@ -179,9 +180,18 @@ localforage.setDriver([
     localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
     localforage.setItem("text", document.querySelector("#timeEditor").value)
     localforage.setItem("isPaused", timenote.isPaused )
-
       }
 
   })
+
+  document.addEventListener("pagehide", (event) => {
+    //localforage.clear()
+  localforage.setItem("timeBeginning", timenote.timeStartedAt)
+  localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
+  localforage.setItem("text", document.querySelector("#timeEditor").value)
+  localforage.setItem("isPaused", timenote.isPaused )
+    
+
+})
     })
   

@@ -9,7 +9,6 @@ class timeNote {
     this.idNumber = 0;
     this.isPaused = false;
     this.text = "";
-    this.inPause = true;
   }
   printInitializeTimer() {
     console.log(this.timeStartedAt);
