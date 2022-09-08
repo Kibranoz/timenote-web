@@ -138,8 +138,8 @@ localforage.setDriver([
     timenote = new timeNote();
   }
   
-  localforage.getItem("isPaused",(err,val) => {
-    timenote.isPaused = val;
+  localforage.getItem("isPaused",(err,value) => {
+    timenote.isPaused = value;
   
   localforage.getItem("timeBeginning", (err,value) =>{
     timenote.timeStartedAt = parseInt(value) || new Date().getTime()
@@ -147,7 +147,7 @@ localforage.setDriver([
     console.log(err)
   })
   
-  if (val) {
+  if (value) {
     localforage.getItem("pauseBeginning", (err,value) =>{
       timenote.pauseStartedAt = parseInt(value) || new Date().getTime()
     })
@@ -160,32 +160,24 @@ localforage.setDriver([
   })
   
   
-  localforage.getItem("text").then((val)=>{
-    document.querySelector("#timeEditor").value = val
+  localforage.getItem("text", (err,val)=>{
+    document.querySelector("#timeEditor").value = val 
     timenote.text = val;
     console.log("success")
     console.log(val)
-  })
-  .catch((error)=>{
-    console.log("error")
-    console.log(error)
+    console.log(err)
   })
   
   
-  localforage.removeItem("text")
   })
   
   
-  document.addEventListener("visibilitychange",(event) => {
-  
-    if (document.visibilityState === "hidden"){
+  document.addEventListener("visibilitychange", (event) => {
+      //localforage.clear()
     localforage.setItem("timeBeginning", timenote.timeStartedAt)
     localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
     localforage.setItem("text", document.querySelector("#timeEditor").value)
     localforage.setItem("isPaused", timenote.isPaused )
-  
-    }
-  
   })
     })
   
