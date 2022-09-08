@@ -174,12 +174,11 @@ localforage.setDriver([
   
   document.addEventListener("visibilitychange", (event) => {
       //localforage.clear()
-    if (document.visibilityState === "hidden"){
     localforage.setItem("timeBeginning", timenote.timeStartedAt)
     localforage.setItem("pauseBeginning", timenote.pauseStartedAt)
     localforage.setItem("text", document.querySelector("#timeEditor").value)
     localforage.setItem("isPaused", timenote.isPaused )
-    }
+
   })
     })
   
