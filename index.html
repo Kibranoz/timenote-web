@@ -1,91 +1,117 @@
 <html>
+
 <head>
-<meta name="theme-color" content="#000000"/>
+   <meta name="theme-color" content="#000000" />
 
-<link rel='manifest' href='https://timenote.louiscouture.dev/manifest.json'>
-<link rel="apple-touch-icon" href="https://timenote.louiscouture.dev/timenote_icon_pink_256.png">
-<link rel="shortcut icon" href="https://timenote.louiscouture.dev/timenote_icon_pink_512.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" defer> 
-<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel = "stylesheet" href = "styles.scss"/>
+   <link rel='manifest' href='https://timenote.louiscouture.dev/manifest.json'>
+   <link rel="apple-touch-icon" href="https://timenote.louiscouture.dev/timenote_icon_pink_256.png">
+   <link rel="shortcut icon" href="https://timenote.louiscouture.dev/timenote_icon_pink_512.png">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" defer>
+   <link rel="stylesheet"
+      href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <link rel="stylesheet" href="styles.scss" />
 
-<script type="module">
-   // This is the offline copy of pages
-/*
- This code uses the pwa-update web component https://github.com/pwa-builder/pwa-update to register your service worker,
- tell the user when there is an update available and let the user know when your PWA is ready to use offline.
-*/
-import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   <script type="module">
+      // This is the offline copy of pages
+      /*
+       This code uses the pwa-update web component https://github.com/pwa-builder/pwa-update to register your service worker,
+       tell the user when there is an update available and let the user know when your PWA is ready to use offline.
+      */
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
-const el = document.createElement('pwa-update');
-document.body.appendChild(el);
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
 
-</script>
+   </script>
 
-<script src = "dist/bundle.js" defer></script>
+   <script src="dist/bundle.js" defer></script>
 
 
 </head>
 <title> Timenote </title>
+
 <body>
- <div class ="container-fluid timeHeader">
-    <div class = "row siteTitle">
-      <div class="hamburgerMenu">
-   <i class="material-symbols-outlined grosIcone" id = "hamburger" aria-label="menu">
-         menu
-       </i>
-       </div>
-      Timenote
-      <div class="invisible"></div>
- </div>
-    </div>
+   <div class="container-fluid timeHeader">
+      <div class="row siteTitle">
+         <div class="hamburgerMenu">
+            <i class="material-symbols-outlined grosIcone" id="hamburger" aria-label="menu">
+               menu
+            </i>
+         </div>
+         Timenote
+         <div class="invisible"></div>
+      </div>
+   </div>
 
- <div class = "hidden showContextMenu ">
-    <div class = "row align-item">
+   <div class="hidden showContextMenu ">
+      <div class="row align-item">
 
-      <i class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
-         dark_mode
-      </i>
+         <i class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
+            dark_mode
+         </i>
 
          <i class="material-symbols-outlined  grosIcone light lean" aria-label="switch to light mode">
             light_mode
          </i>
-    </div>
+      </div>
 
- </div>
-
-
-  <div class="enGros">
-<div class = "container-fluid" id = "temps">
-</div>
-<div class = "container-fluid enGros row hidden" id = "timeAdjust"> 
-      <div class="hour timeComponante col-xs span3" timeDiv = "hour"><input type="number" aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3" timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div class ="second timeComponante selected col-xs span3" timeDiv = "second"><input type="number" aria-label="enter seconds here"></div>
-   <div class= "col-xs span3">
-      <i class= "material-symbols-outlined md-50 grosIcone approve" aria-label="enter time and play"> thumb_up_alt </i>
    </div>
-</div>
-</div>
-<div class = "row container-fluid menuBar">
-   <div class = "span3">
-      <i class= "material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time">update</i>
-   </div>
-    <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone note"aria-label="add a note">note_add</i>
- </div>
- <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time">pause</i>
-    <i class= "material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer">play_arrow</i>
- </div>
- <div class = "span3">
-    <i class= "material-symbols-outlined md-50 grosIcone save" aria-label="save">save</i>
-    <i class= "material-symbols-outlined md-50 grosIcone share hidden" aria-label="share">share</i>
 
- </div>
-</div>
-   <textarea id = "timeEditor"></textarea>
+
+   <div class="enGros">
+      <div class="container-fluid" id="temps">
+      </div>
+      <div class="container-fluid enGros row hidden" id="timeAdjust">
+         <div class="relativeTimeZone">
+        <p> Relative time </p>
+        <div class="timeInput">
+         <div class="hour timeComponante col-xs span3" timeDiv="hour"><input type="number"
+               aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3"
+            timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
+            class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
+               aria-label="enter seconds here"></div>
+            <i class="material-symbols-outlined md-50 grosIcone approveRelative" aria-label="enter time and play"> thumb_up_alt
+            </i>
+            </div>
+         </div>
+         <div class="absoluteTimeZone">
+        <p> From a specific hour </p>
+         <div class="hour timeComponante col-xs span3" timeDiv="hour"><input type="number"
+               aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3"
+            timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
+            class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
+               aria-label="enter seconds here"></div>
+            <i class="material-symbols-outlined md-50 grosIcone approveAbsolute" aria-label="enter time and play"> thumb_up_alt
+            </i>
+         </div>
+
+      </div>
+
+   </div>
+   <div class="row container-fluid menuBar">
+      <div class="span3">
+         <i class="material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time">update</i>
+      </div>
+      <div class="span3">
+         <i class="material-symbols-outlined md-50 grosIcone note" aria-label="add a note">note_add</i>
+      </div>
+      <div class="span3">
+         <i class="material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time">pause</i>
+         <i class="material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer">play_arrow</i>
+      </div>
+      <div class="span3">
+         <i class="material-symbols-outlined md-50 grosIcone save" aria-label="save">save</i>
+         <i class="material-symbols-outlined md-50 grosIcone share hidden" aria-label="share">share</i>
+
+      </div>
+   </div>
+   <textarea id="timeEditor"></textarea>
 </body>
 
-<script type  = "module" src = "pwabuilder-sw.js"></script>
+<script type="module" src="pwabuilder-sw.js"></script>
+
 </html>

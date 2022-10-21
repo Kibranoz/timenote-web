@@ -95,6 +95,14 @@ html, body{
     padding-top: 5px;
     padding-bottom:5px;
 }
+
+#timeAdjust {
+    display: flex;
+    justify-content: space-around;
+}
+#timeInput {
+    width: 100%;
+}
 .menubar{
     display: flex;
     padding-top: 10px;
@@ -116,9 +124,6 @@ html, body{
 
 .grosIcone{
     font-size: 30px;
-    display:
-    flex;
-    justify-content: center;
 }
 .notearea{
     font-family: 'Share Tech Mono', monospace; 
@@ -128,7 +133,7 @@ body
     background-color: rgb(155 145 120 / 40%);
 }
 .hidden{
-    display:none;
+    display: none !important;;
 }
 i:hover{
     cursor: pointer;
@@ -150,9 +155,15 @@ i:hover{
 
 textarea{
     background-color: white;
-    color:black;
+    color :black;
 }
 
+.relativeTimeZone, .absoluteTimeZone {
+    font-size: 20px;
+}
+.relativeTimeZone p, .absoluteTimeZone p {
+    width: 100%;
+}
 body.dark textarea{
     background-color: black;
     color:white;

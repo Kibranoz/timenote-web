@@ -95,10 +95,20 @@ localforage.setDriver([
         timenote = new timeNote();
       }
     });
-    document.querySelector("i.approve").addEventListener("click",() => {
+    document.querySelector("i.approveRelative ").addEventListener("click",() => {
       timenote.adjustTime();
       simulateClickPlay()
     });
+
+    document.querySelector("i.approveAbsolute").addEventListener("click", ()=>{
+      let hour = document.querySelector(".absoluteTimeZone .hour input").value
+      let  minutes = document.querySelector(".absoluteTimeZone .minute input").value
+      let seconds = document.querySelector(".absoluteTimeZone .minute input").value 
+      timenote.adjustTimeFromHour(hour, minutes, seconds)
+      simulateClickPlay()
+
+
+    })
   
   
   

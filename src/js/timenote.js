@@ -73,10 +73,20 @@ class timeNote {
     console.log(document.querySelector(".hour input").value)
     this.timeStartedAt =
       new Date().getTime() -
-      (parseInt(this.zeroIfNull(document.querySelector(".hour input").value),10)* 3600 +
-        parseInt(this.zeroIfNull(document.querySelector(".minute input").value),10) * 60 +
-        parseInt(this.zeroIfNull(document.querySelector(".second input").value),10)) *
+      (parseInt(this.zeroIfNull(document.querySelector(".relativeTimeZone .hour input").value),10)* 3600 +
+        parseInt(this.zeroIfNull(document.querySelector(".relativeTimeZone .minute input").value),10) * 60 +
+        parseInt(this.zeroIfNull(document.querySelector(".relativeTimeZone .second input").value),10)) *
         1000;
+  }
+
+  adjustTimeFromHour(hours,minutes, seconds) {
+    let now = new Date();
+    let hoursDifference = now.getHours() - this.zeroIfNull(hours);
+    let minutesDifference = now.getMinutes() - this.zeroIfNull(minutes);
+    let secondsDifference = now.getSeconds() - this.zeroIfNull(seconds);
+    let timeDifference = (parseInt(hoursDifference,10) * 3600 + parseInt(minutesDifference,10) * 60 + parseInt(secondsDifference,10)) * 1000
+    console.log("timeDifference", timeDifference)
+    this.timeStartedAt = new Date().getTime() - timeDifference; 
   }
 }
 
