@@ -49,4 +49,5 @@ I do realize that we should not support google dominance over the web, but other
 
 No, if you live in a juridiction covered by GDPR,  you should not use this app, because of the use of google fonts. However this app is not geo fenced. 
 
-
+## Usage
+go to timenote.louiscouture.dev
