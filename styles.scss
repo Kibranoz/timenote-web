@@ -212,3 +212,15 @@ body.dark ::-webkit-resizer {
     display: hidden;
 }
 
+
+textarea:focus + .bottom-bar {
+    display: flex;
+    position: sticky;
+    top: 0px;
+    color:black;
+    height: 40px;
+    }
+
+.bottom-bar {
+    display: none;;
+}
