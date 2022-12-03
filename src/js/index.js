@@ -10,12 +10,9 @@ window.addEventListener("scroll", () => input.blur());
 window.visualViewport.addEventListener("resize", resizeHandler);
 
 function resizeHandler() {
-    if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
       height = viewport.height;
-    }
-    bottomBar.style.bottom = `${height - viewport.height + 10}px`;
+      bottomBar.style.bottom = `${height - viewport.height + 10}px`;
   }
-
 
 
 var timenote = null;
