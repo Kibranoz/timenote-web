@@ -1,6 +1,23 @@
 import localforage from "./localforage"
 import timeNote from "./timenote"
 
+const bottomBar = document.getElementById("bottomBar");
+const input = document.getElementById("timeEditor");
+const height = window.visualViewport.height;
+const viewport = window.visualViewport;
+
+window.addEventListener("scroll", () => input.blur());
+window.visualViewport.addEventListener("resize", resizeHandler);
+
+function resizeHandler() {
+    if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
+      height = viewport.height;
+    }
+    bottomBar.style.bottom = `${height - viewport.height + 10}px`;
+  }
+
+
+
 var timenote = null;
 var playTime = null;
 var pauseTime = null;

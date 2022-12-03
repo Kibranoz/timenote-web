@@ -213,14 +213,14 @@ body.dark ::-webkit-resizer {
 }
 
 
-textarea:focus + .bottom-bar {
+textarea:focus + #bottomBar {
     display: flex;
     position: sticky;
-    top: 0px;
+    bottom: 0px;
     color:black;
     height: 40px;
     }
 
-.bottom-bar {
-    display: none;;
+#bottomBar{
+    display: none;
 }
