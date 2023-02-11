@@ -1,6 +1,23 @@
 import localforage from "./localforage"
 import timeNote from "./timenote"
 
+const bottomBar = document.getElementById("bottomBar");
+const input = document.getElementById("timeEditor");
+const height = window.visualViewport.height;
+const viewport = window.visualViewport;
+
+window.addEventListener("scroll", () => input.blur());
+window.visualViewport.addEventListener("resize", resizeHandler);
+
+function resizeHandler() {
+    if (!/iPhone|iPad|iPod/.test(window.navigator.userAgent)) {
+      height = viewport.height;
+    }
+    bottomBar.style.bottom = `${height - viewport.height}px`;
+  }
+
+
+
 var timenote = null;
 var playTime = null;
 var pauseTime = null;
@@ -125,6 +142,29 @@ localforage.setDriver([
     document.querySelector("body").classList.add("light");
     document.querySelector("body").classList.remove("dark");
   })
+
+  document.querySelector('span.select_all').addEventListener('click', ()=>{
+    let keyBoard = document.querySelector("#timeEditor")
+    console.log("click")
+    setTimeout(function() {
+      keyBoard.select();
+    }, 100); 
+    keyBoard.focus()
+  })
+
+  document.querySelector(".keyboard_tab").addEventListener("click", ()=>{
+    let keyBoard = document.querySelector("#timeEditor")
+    let editorText = keyBoard.value
+    let tabbedText = [editorText.slice(0,keyBoard.selectionStart), "    ", editorText.slice(keyBoard.selectionStart,editorText.length - 1)].join('')
+    console.log(tabbedText)
+    keyBoard.value = tabbedText
+  })
+
+document.querySelector('.hide_keyboard').addEventListener('click', ()=>{
+  let keyBoard = document.querySelector("#timeEditor")
+  keyBoard.blur()
+})
+
   
   window.addEventListener("load",async ()=>{
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

@@ -194,6 +194,13 @@ body.dark textarea{
           border-width:thick;
           border-color:white;
       }
+      body.dark #bottom-bar {
+        color:rgb(252 ,251, 27)
+      }
+
+      body.dark .editorContainer:focus-within  #bottomBar {
+        background-color: black;
+      }
 
 body.dark ::-webkit-scrollbar {
     width: 10px
@@ -211,4 +218,31 @@ body.dark ::-webkit-scrollbar-corner {
 body.dark ::-webkit-resizer {
     display: hidden;
 }
+@media only screen and (max-width: 1000px) {
 
+.editorContainer:focus-within  #bottomBar {
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    height: 50px;
+    background-color: rgb(213, 209, 209)
+}
+
+.editorContainer:focus-within  #bottomBar span {
+    margin: 10px
+}
+
+
+}
+#bottomBar {
+    display: none;
+}
+.editorContainer {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.relativeTimeZone {
+    margin-bottom:10px;
+}
