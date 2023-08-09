@@ -28,7 +28,7 @@
 
    </script>
 
-   <script src="dist/bundle.js" defer></script>
+   <script src="bundle.js" defer></script>
 
 
 </head>
@@ -36,32 +36,37 @@
 
 <body>
    <div class="container-fluid timeHeader">
-      <div class="row siteTitle">
+      <div data-tauri-drag-region class="row siteTitle titleBar">
          <div class="hamburgerMenu">
-            <i class="material-symbols-outlined grosIcone" id="hamburger" aria-label="menu">
-               menu
-            </i>
+            <img src="menu.svg" class="material-symbols-outlined grosIcone" id="hamburger" aria-label="menu">
+            </img>
          </div>
          Timenote
-         <div class="invisible"></div>
+         <div class="buttonRow">
+            <div class="minimizeButton">
+               <img src="remove.svg" class="material-symbols-outlined grosIcone" id="remove" aria-label="reduce" />
+            </div>
+            <div class="squareButton">
+               <img src="square.svg" class="material-symbols-outlined grosIcone" id="square" aria-label="square" />
+            </div>
+            <div class="closeButton">
+               <img src="close.svg" class="material-symbols-outlined grosIcone" id="close" aria-label="close"/>
+            </div>
+         </div>
       </div>
    </div>
 
    <div class="hidden showContextMenu ">
       <div class="row align-item">
 
-         <i class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
-            dark_mode
-         </i>
+         <img src="dark_mode.svg" class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
+      </img>
 
-         <i class="material-symbols-outlined  grosIcone light lean" aria-label="switch to light mode">
-            light_mode
-         </i>
+         <img src="light_mode.svg" class="material-symbols-outlined  grosIcone light lean" aria-label="switch to light mode">
+         </img>
       </div>
 
    </div>
-
-
    <div class="enGros">
       <div class="container-fluid" id="temps">
       </div>
@@ -74,8 +79,8 @@
             timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
             class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
                aria-label="enter seconds here"></div>
-            <i class="material-symbols-outlined md-50 grosIcone approveRelative" aria-label="enter time and play"> thumb_up_alt
-            </i>
+            <img src="thumbs_up.svg" class="material-symbols-outlined md-50 grosIcone approveRelative" aria-label="enter time and play">
+            </img>
             </div>
          </div>
          <div class="absoluteTimeZone">
@@ -85,8 +90,8 @@
             timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
             class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
                aria-label="enter seconds here"></div>
-            <i class="material-symbols-outlined md-50 grosIcone approveAbsolute" aria-label="enter time and play"> thumb_up_alt
-            </i>
+            <img src="thumbs_up.svg" class="material-symbols-outlined md-50 grosIcone approveAbsolute" aria-label="enter time and play"> 
+            </img>
          </div>
 
       </div>
@@ -94,20 +99,21 @@
    </div>
    <div class="row container-fluid menuBar">
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time">update</i>
+         <img class="material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time" src="update.svg">
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone note" aria-label="add a note">note_add</i>
+         <img class="material-symbols-outlined md-50 grosIcone note" aria-label="add a note" src="note_add.svg">
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time">pause</i>
-         <i class="material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer">play_arrow</i>
+         <img class="material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time" src="pause.svg">
+         <img class="material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer" src="play_arrow.svg">
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone save" aria-label="save">save</i>
-         <i class="material-symbols-outlined md-50 grosIcone share hidden" aria-label="share">share</i>
-
+         <img class="material-symbols-outlined md-50 grosIcone save" aria-label="save" src="save.svg">
+         <img class="material-symbols-outlined md-50 grosIcone share hidden" aria-label="share" src="save.svg">
       </div>
+   </div>
+   
    </div>
    <div class ="editorContainer">
    <textarea id="timeEditor"></textarea>
