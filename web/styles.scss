@@ -2,6 +2,9 @@
     font-family: 'Share Tech Mono', monospace;
 }
 
+.buttonRow {
+    display: flex;
+}
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -83,9 +86,12 @@ html, body{
     align-self: flex-start;
 }
 
+.hamburgerMenu {
+    width: 90px;
+}
+
 .hamburgerMenu, .showContextMenu {
     -webkit-app-region: no-drag;
-    app-region: no-drag;
 }
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
@@ -94,6 +100,10 @@ html, body{
     text-align: center;
     padding-top: 5px;
     padding-bottom:5px;
+}
+
+.titleBar {
+    user-select: none;
 }
 
 #timeAdjust {
@@ -121,7 +131,10 @@ html, body{
     text-align: center;
     font-family: 'Share Tech Mono', monospace;
 }
-
+.squareButton {
+    display: flex;
+    align-content: center;
+}
 .grosIcone{
     font-size: 30px;
 }
@@ -135,7 +148,7 @@ body
 .hidden{
     display: none !important;;
 }
-i:hover{
+img:hover{
     cursor: pointer;
 }
 
@@ -164,6 +177,7 @@ textarea{
 .relativeTimeZone p, .absoluteTimeZone p {
     width: 100%;
 }
+
 body.dark textarea{
     background-color: black;
     color:white;
@@ -197,6 +211,11 @@ body.dark textarea{
       body.dark #bottom-bar {
         color:rgb(252 ,251, 27)
       }
+
+      body.dark .menubar img {
+        filter: invert();
+
+    }
 
       body.dark .editorContainer:focus-within  #bottomBar {
         background-color: black;

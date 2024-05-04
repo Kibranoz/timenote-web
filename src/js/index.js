@@ -1,6 +1,8 @@
 import localforage from "./localforage"
 import timeNote from "./timenote"
-
+import { appWindow } from '@tauri-apps/api/window'
+import { save } from "@tauri-apps/api/dialog";
+import { writeTextFile, BaseDirectory } from '@tauri-apps/api/fs';
 const bottomBar = document.getElementById("bottomBar");
 const input = document.getElementById("timeEditor");
 const height = window.visualViewport.height;
@@ -27,8 +29,16 @@ localforage.setDriver([
     localforage.WEBSQL,
     localforage.LOCALSTORAGE
     ]).then(()=>{
+
+  document.getElementById("remove")
+  .addEventListener("click", ()=> appWindow.minimize())
+
+  document.getElementById("close")
+  .addEventListener('click', () => appWindow.close())
+  document.getElementById("square")
+  .addEventListener('click', () => appWindow.toggleMaximize())
   
-  document.querySelector("i.play").addEventListener("click", ()=>{
+  document.querySelector(".play").addEventListener("click", ()=>{
       clearInterval(pauseTime);
       pauseTime = null;
       if (!timenote) {
@@ -48,7 +58,7 @@ localforage.setDriver([
       document.querySelector(".play").classList.add("hidden")
       document.querySelector(".pause").classList.remove("hidden");
     });
-    document.querySelector("i.pause").addEventListener("click",()=> {
+    document.querySelector(".pause").addEventListener("click",()=> {
       document.querySelector(".pause").classList.add("hidden")
       document.querySelector(".play").classList.remove("hidden");
       timenote.pauseBegin();
@@ -58,35 +68,18 @@ localforage.setDriver([
       timenote.addTimeToBottomOfText();
     
     });
-    document.querySelector("i.save").addEventListener("click",async () => {
-      let fileHandle;
-  
-    // Destructure the one-element array.
-    fileHandle = await window.showSaveFilePicker({
-      types: [
-        {
-          description: 'Text Files',
-          accept: {
-            'text/plain': ['.txt'],
-          },
-        },
-      ],
-    });
-    // Do something with the file handle.
-  
-  const contents =  timenote.getTextFromTextArea()
-  
-  
-  
-  const writable = await fileHandle.createWritable();
-    // Write the contents of the file to the stream.
-    await writable.write(contents);
-    // Close the file and write the contents to disk.
-    await writable.close();    
-        
+    document.querySelector(".save").addEventListener("click",async () => {
+      const filePath = await save({
+        filters: [{
+          name: 'Text',
+          extensions: ['txt']
+        }]
       })
+
+      await writeTextFile({ path: filePath, contents: timenote.getTextFromTextArea()}, { dir: BaseDirectory.Home });
+    })
   
-    document.querySelector("i.share").addEventListener("click", async () => {
+    document.querySelector(".share").addEventListener("click", async () => {
       const shareData  = {
         title : new Date().toDateString(),
         text : document.querySelector("#timeEditor").value
@@ -97,27 +90,27 @@ localforage.setDriver([
   
   function simulateClickPlay () {
     var clickEvent = new MouseEvent("click", { shiftKey: true });
-    document.querySelector("i.play").dispatchEvent(clickEvent)
+    document.querySelector(".play").dispatchEvent(clickEvent)
     document.querySelector("#timeAdjust").classList.add("hidden")
     
   }
       
-    document.querySelector("i.updateTime").addEventListener("click",() => {
+    document.querySelector(".updateTime").addEventListener("click",() => {
         document.querySelector("#timeAdjust").classList.toggle("hidden")
       if (timenote){
         var clickEvent = new MouseEvent("click", { shiftKey: true });
-        document.querySelector("i.play").dispatchEvent(clickEvent)
+        document.querySelector(".play").dispatchEvent(clickEvent)
       }
       if (!timenote) {
         timenote = new timeNote();
       }
     });
-    document.querySelector("i.approveRelative ").addEventListener("click",() => {
+    document.querySelector("img.approveRelative ").addEventListener("click",() => {
       timenote.adjustTime();
       simulateClickPlay()
     });
 
-    document.querySelector("i.approveAbsolute").addEventListener("click", ()=>{
+    document.querySelector("img.approveAbsolute").addEventListener("click", ()=>{
       let hour = document.querySelector(".absoluteTimeZone .hour input").value
       let  minutes = document.querySelector(".absoluteTimeZone .minute input").value
       let seconds = document.querySelector(".absoluteTimeZone .minute input").value 
@@ -128,17 +121,16 @@ localforage.setDriver([
     })
   
   
-  
     document.querySelector("div #hamburger").addEventListener("click", () => {
       document.querySelector(".showContextMenu").classList.toggle("hidden")
     })
   
-  document.querySelector("i.dark").addEventListener("click", ()=>{
+  document.querySelector("img.dark").addEventListener("click", ()=>{
     document.querySelector("body").classList.add("dark");
     document.querySelector("body").classList.remove("light");
   })
   
-  document.querySelector("i.light").addEventListener("click", ()=>{
+  document.querySelector("img.light").addEventListener("click", ()=>{
     document.querySelector("body").classList.add("light");
     document.querySelector("body").classList.remove("dark");
   })
@@ -176,8 +168,8 @@ document.querySelector('.hide_keyboard').addEventListener('click', ()=>{
   
   if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
     // some code..
-    document.querySelector("i.save").classList.add("hidden")
-    document.querySelector("i.share").classList.remove("hidden");
+    document.querySelector(".save").classList.add("hidden")
+    document.querySelector(".share").classList.remove("hidden");
    }
 
    let timeBeginning = await localforage.getItem("timeBeginning")
