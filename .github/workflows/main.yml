@@ -1,6 +1,6 @@
 name: tauri-build
 on:
-  workflow_dispatch:
+  workflow_dispatch --ref release:
 jobs:
   build:
     runs-on: ubuntu-latest
