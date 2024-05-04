@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: JonasKruckenberg/tauri-build@v1.0.3
         with:
-          projectPath: .src-tauri
+          projectPath: src-tauri
