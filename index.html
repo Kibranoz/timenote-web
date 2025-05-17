@@ -13,7 +13,7 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" defer>
    <link rel="stylesheet"
       href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   <link rel="stylesheet" href="styles.scss" />
+   <link rel="stylesheet" href="styles.css" />
 
    <script type="module">
       // This is the offline copy of pages
@@ -35,14 +35,14 @@
 <title> Timenote </title>
 
 <body>
-   <div class="container-fluid timeHeader">
+   <div class="timeHeader">
       <div class="row siteTitle">
          <div class="hamburgerMenu">
-            <i class="material-symbols-outlined grosIcone" id="hamburger" aria-label="menu">
+            <i class="material-symbols-outlined bigIcon" id="hamburger" aria-label="menu">
                menu
             </i>
          </div>
-         Timenote
+         <div class="title">Timenote</div>
          <div class="invisible"></div>
       </div>
    </div>
@@ -50,11 +50,11 @@
    <div class="hidden showContextMenu ">
       <div class="row align-item">
 
-         <i class="material-symbols-outlined grosIcone dark lean" aria-label="switch to dark mode">
+         <i class="material-symbols-outlined bigIcon dark lean" aria-label="switch to dark mode">
             dark_mode
          </i>
 
-         <i class="material-symbols-outlined  grosIcone light lean" aria-label="switch to light mode">
+         <i class="material-symbols-outlined  bigIcon light lean" aria-label="switch to light mode">
             light_mode
          </i>
       </div>
@@ -62,30 +62,31 @@
    </div>
 
 
-   <div class="enGros">
+   <div class="timeArea">
       <div class="container-fluid" id="temps">
       </div>
-      <div class="container-fluid enGros row hidden" id="timeAdjust">
+      <div class="container-fluid timeArea row hidden" id="timeAdjust">
+
          <div class="relativeTimeZone">
         <p> Relative time </p>
         <div class="timeInput">
-         <div class="hour timeComponante col-xs span3" timeDiv="hour"><input type="number"
-               aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3"
+         <div class="hour timeComponent col-xs span3" timeDiv="hour"><input type="number"
+               aria-label="enter hours here"></input></div>:<div class="minute timeComponent col-xs span3"
             timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
-            class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
+            class="second timeComponent selected col-xs span3" timeDiv="second"><input type="number"
                aria-label="enter seconds here"></div>
-            <i class="material-symbols-outlined md-50 grosIcone approveRelative" aria-label="enter time and play"> thumb_up_alt
+            <i class="material-symbols-outlined md-50 bigIcon approveRelative" aria-label="enter time and play"> thumb_up_alt
             </i>
             </div>
          </div>
          <div class="absoluteTimeZone">
         <p> From a specific hour </p>
-         <div class="hour timeComponante col-xs span3" timeDiv="hour"><input type="number"
-               aria-label="enter hours here"></input></div>:<div class="minute timeComponante col-xs span3"
+         <div class="hour timeComponent col-xs span3" timeDiv="hour"><input type="number"
+               aria-label="enter hours here"></input></div>:<div class="minute timeComponent col-xs span3"
             timeDiv="minute"><input type="number" aria-label="enter minutes here"></div>:<div
-            class="second timeComponante selected col-xs span3" timeDiv="second"><input type="number"
+            class="second timeComponent selected col-xs span3" timeDiv="second"><input type="number"
                aria-label="enter seconds here"></div>
-            <i class="material-symbols-outlined md-50 grosIcone approveAbsolute" aria-label="enter time and play"> thumb_up_alt
+            <i class="material-symbols-outlined md-50 bigIcon approveAbsolute" aria-label="enter time and play"> thumb_up_alt
             </i>
          </div>
 
@@ -94,18 +95,18 @@
    </div>
    <div class="row container-fluid menuBar">
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone updateTime" aria-label="change time">update</i>
+         <i class="material-symbols-outlined md-50 bigIcon updateTime" aria-label="change time">update</i>
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone note" aria-label="add a note">note_add</i>
+         <i class="material-symbols-outlined md-50 bigIcon note" aria-label="add a note">note_add</i>
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone hidden pause" aria-label="pause time">pause</i>
-         <i class="material-symbols-outlined md-50 grosIcone play" aria-label="start or resume timer">play_arrow</i>
+         <i class="material-symbols-outlined md-50 bigIcon hidden pause" aria-label="pause time">pause</i>
+         <i class="material-symbols-outlined md-50 bigIcon play" aria-label="start or resume timer">play_arrow</i>
       </div>
       <div class="span3">
-         <i class="material-symbols-outlined md-50 grosIcone save" aria-label="save">save</i>
-         <i class="material-symbols-outlined md-50 grosIcone share hidden" aria-label="share">share</i>
+         <i class="material-symbols-outlined md-50 bigIcon save" aria-label="save">save</i>
+         <i class="material-symbols-outlined md-50 bigIcon share hidden" aria-label="share">share</i>
 
       </div>
    </div>

@@ -18,7 +18,7 @@
   'GRAD' 0,
   'opsz' 48
 }
-.engros{
+.timeArea{
     padding-top:30px;
     padding-bottom:30px;
     font-size: 30px;
@@ -54,7 +54,7 @@ html, body{
     -webkit-app-region: drag;
     app-region: drag;
 }
-.timeComponante input{
+.timeComponent input{
     max-width: 120px;
     font-size: 30px;
     display: inline-block;
@@ -86,16 +86,16 @@ html, body{
 .hamburgerMenu, .showContextMenu {
     -webkit-app-region: no-drag;
     app-region: no-drag;
+    padding-left: 15px;
 }
+
 .timeHeader{
     font-family: 'Press Start 2P',cursive;
     color: rgb(228, 243, 13);
     background-color: black;
-    text-align: center;
     padding-top: 5px;
     padding-bottom:5px;
-}
-
+    }
 #timeAdjust {
     display: flex;
     justify-content: space-around;
@@ -122,7 +122,7 @@ html, body{
     font-family: 'Share Tech Mono', monospace;
 }
 
-.grosIcone{
+.bigIcon{
     font-size: 30px;
 }
 .notearea{
@@ -177,13 +177,13 @@ body.dark textarea{
           color:white;
           border-color:white;
       }
-      body.dark > div.enGros{
+      body.dark > div.timeArea{
           border-color:white;
           background-color: black;
           border-style: dashed;
     
       }
-      body.dark .engros{
+      body.dark .timeArea{
         background-color: black!important;
         color:rgb(228, 243, 13)
       }
@@ -245,4 +245,8 @@ body.dark ::-webkit-resizer {
 
 .relativeTimeZone {
     margin-bottom:10px;
+}
+
+.title {
+    margin-left: -30px;
 }
